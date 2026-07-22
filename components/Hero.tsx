@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { EVENT } from "@/lib/event";
 import Countdown from "@/components/Countdown";
+import HeroBanner from "@/components/HeroBanner";
 
 export default function Hero() {
   return (
@@ -12,6 +13,8 @@ export default function Hero() {
       <div className="pointer-events-none absolute -left-24 top-40 h-72 w-72 rounded-full bg-maroon-200/30 blur-3xl" />
 
       <div className="container-x relative py-16 sm:py-24">
+        <HeroBanner />
+
         <div className="mx-auto max-w-3xl text-center animate-fade-up">
           <span className="eyebrow">
             {EVENT.dateLabel} · {EVENT.venue.name}
