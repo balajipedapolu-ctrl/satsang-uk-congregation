@@ -23,7 +23,7 @@ export const EVENT = {
 } as const;
 
 export const CONTACT = {
-  email: "info@satsanguk.org",
+  email: "Satsang.Unitedkingdom@gmail.com",
   phone: "+44 7868 098775",
   whatsapp: "https://chat.whatsapp.com/your-group-invite-code",
 } as const;
