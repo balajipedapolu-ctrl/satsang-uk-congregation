@@ -3,10 +3,13 @@ import { NextResponse } from "next/server";
 /**
  * Handles congregation registrations.
  *
- * Right now it validates the payload and returns a unique reference number,
- * which the client turns into a QR code. To actually deliver a confirmation
- * email (and/or persist registrations), wire in a provider below — see README
- * ("Enabling confirmation emails").
+ * 1. Validates the payload
+ * 2. Generates a unique reference number (used for the QR code)
+ * 3. Saves the registration into a Google Sheet, if the webhook is configured
+ *
+ * To enable saving, set the environment variable GOOGLE_SHEETS_WEBHOOK_URL to
+ * the URL of a Google Apps Script Web App (see GOOGLE_SHEETS_SETUP.md).
+ * If it isn't set, the site still works — it just won't persist the data.
  */
 export async function POST(request: Request) {
   try {
@@ -27,20 +30,32 @@ export async function POST(request: Request) {
       .slice(2, 8)
       .toUpperCase()}`;
 
-    // --- Optional: send a confirmation email -------------------------------
-    // 1. `npm install resend`
-    // 2. Add RESEND_API_KEY in your environment / Vercel project settings.
-    // 3. Uncomment:
-    //
-    // import { Resend } from "resend";
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: "Satsang UK <noreply@satsanguk.org>",
-    //   to: email,
-    //   subject: `Registration confirmed — ${reference}`,
-    //   text: `Namaskar ${name},\n\nYour registration is confirmed.\nReference: ${reference}\n\nSee you at the congregation!`,
-    // });
-    // -----------------------------------------------------------------------
+    const webhook = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    if (webhook) {
+      try {
+        await fetch(webhook, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            reference,
+            name,
+            email,
+            phone: String(body?.phone ?? ""),
+            location: String(body?.location ?? ""),
+            attendees: body?.attendees ?? "",
+            wantsToVolunteer: Boolean(body?.wantsToVolunteer),
+            seva: Array.isArray(body?.seva) ? body.seva : [],
+          }),
+        });
+      } catch (err) {
+        // Don't block the visitor if the sheet is unreachable — just log it.
+        console.error("Could not save registration to Google Sheet:", err);
+      }
+    } else {
+      console.warn(
+        "GOOGLE_SHEETS_WEBHOOK_URL is not set — registration was not saved.",
+      );
+    }
 
     return NextResponse.json({ reference });
   } catch {
