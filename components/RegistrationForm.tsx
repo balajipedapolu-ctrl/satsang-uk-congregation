@@ -118,6 +118,36 @@ export default function RegistrationForm() {
           </p>
         </div>
 
+        {/* NHS blood donor registration drive */}
+        <div className="mt-6 overflow-hidden rounded-2xl border border-red-200 bg-red-50 text-left">
+          <div className="flex flex-col items-center gap-4 p-5 sm:flex-row">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/nhs-blood-donation.jpg"
+              alt="NHS — register as a blood donor at the Satsang UK event"
+              className="w-36 shrink-0 rounded-lg shadow-card"
+            />
+            <div>
+              <h3 className="font-serif text-lg font-semibold text-red-700">
+                🩸 Give blood at the event
+              </h3>
+              <p className="mt-1 text-sm text-ink/70">
+                The NHS blood donor team will be with us on the day. Come find
+                out your blood type and register as a donor — 10:00 AM to
+                4:00 PM at the venue.
+              </p>
+              <a
+                href="https://www.blood.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block text-sm font-semibold text-red-700 underline"
+              >
+                Learn more at blood.co.uk →
+              </a>
+            </div>
+          </div>
+        </div>
+
         {result.seva.length > 0 ? (
           <p className="mt-4 text-sm text-ink/70">
             🙏 Thank you for offering seva:{" "}
