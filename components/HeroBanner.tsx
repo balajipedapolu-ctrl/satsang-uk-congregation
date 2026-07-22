@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * Header banner showing the revered figures.
@@ -8,12 +8,20 @@ import { useState } from "react";
  * Place the image at: public/founders.jpg
  * (Sree Sree Borda, Sree Sree Thakur, Sree Sree Baroma, Sree Sree Acharyadev)
  *
- * Until that file exists the banner hides itself, so the page never shows a
- * broken image.
+ * We probe the image on mount and only render the banner if it loads, so a
+ * missing file shows nothing (never a broken image).
  */
 export default function HeroBanner() {
-  const [failed, setFailed] = useState(false);
-  if (failed) return null;
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const img = new window.Image();
+    img.onload = () => setReady(true);
+    img.onerror = () => setReady(false);
+    img.src = "/founders.jpg";
+  }, []);
+
+  if (!ready) return null;
 
   return (
     <figure className="mx-auto mb-10 max-w-4xl animate-fade-up">
@@ -21,7 +29,6 @@ export default function HeroBanner() {
       <img
         src="/founders.jpg"
         alt="Sree Sree Borda, Sree Sree Thakur Anukulchandra, Sree Sree Baroma and Sree Sree Acharyadev"
-        onError={() => setFailed(true)}
         className="w-full rounded-2xl border border-saffron-100 shadow-soft"
       />
     </figure>

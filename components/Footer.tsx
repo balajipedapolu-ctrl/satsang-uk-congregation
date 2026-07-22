@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CONTACT, EVENT, NAV_LINKS } from "@/lib/event";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,9 +10,7 @@ export default function Footer() {
       <div className="container-x grid gap-10 py-14 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-saffron-600 font-serif text-lg font-bold text-white">
-              ॐ
-            </span>
+            <Logo className="h-11 w-11" />
             <span className="font-serif text-xl font-bold text-cream">
               {EVENT.organisation}
             </span>

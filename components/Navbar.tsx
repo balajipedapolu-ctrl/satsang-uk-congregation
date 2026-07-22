@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { EVENT, NAV_LINKS } from "@/lib/event";
+import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -38,9 +39,7 @@ export default function Navbar() {
           className="group flex items-center gap-3"
           onClick={() => setOpen(false)}
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-saffron-600 font-serif text-lg font-bold text-white shadow-soft">
-            ॐ
-          </span>
+          <Logo className="h-11 w-11" />
           <span className="leading-tight">
             <span className="block font-serif text-lg font-bold text-maroon-800">
               {EVENT.organisation}

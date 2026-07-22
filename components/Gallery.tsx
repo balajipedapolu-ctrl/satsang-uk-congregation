@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import Logo from "@/components/Logo";
 
 /**
  * Placeholder gallery. To use real media:
@@ -32,8 +33,11 @@ export default function Gallery() {
               className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${tile.gradient} ${tile.span} shadow-card`}
             >
               <div className="dot-grid absolute inset-0 opacity-20" />
-              <div className="absolute inset-0 flex items-center justify-center text-6xl text-white/25 transition group-hover:scale-110">
-                ॐ
+              <div className="absolute inset-0 flex items-center justify-center transition group-hover:scale-110">
+                <Logo
+                  variant="plain"
+                  imgClassName="h-24 w-24 opacity-25 brightness-0 invert"
+                />
               </div>
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent p-4">
                 <span className="text-sm font-semibold text-white">
