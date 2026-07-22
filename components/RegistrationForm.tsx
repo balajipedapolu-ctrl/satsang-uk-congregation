@@ -42,6 +42,7 @@ export default function RegistrationForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<Confirmation | null>(null);
+  const [showMore, setShowMore] = useState(false);
 
   function toggleSeva(option: string) {
     setForm((f) => ({
@@ -119,44 +120,61 @@ export default function RegistrationForm() {
         </div>
 
         {/* NHS "What's Your Blood Type?" (WYBT) campaign */}
-        <div className="mt-6 rounded-2xl border border-red-200 bg-red-50 p-5 text-left">
-          <div className="flex flex-col gap-4 sm:flex-row">
+        <div className="mt-6 rounded-2xl border-2 border-red-200 bg-red-50 p-5 text-left sm:p-6">
+          <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/nhs-blood-donation.jpg"
               alt="NHS — What's Your Blood Type? campaign at the Satsang UK event"
-              className="mx-auto w-40 shrink-0 rounded-lg shadow-card sm:mx-0"
+              className="w-56 shrink-0 rounded-xl bg-white p-1 shadow-soft sm:w-48"
             />
-            <div className="space-y-2 text-sm leading-relaxed text-ink/75">
+            <div className="text-sm leading-relaxed text-ink/75">
               <h3 className="font-serif text-lg font-semibold text-red-700">
                 🩸 What&rsquo;s Your Blood Type? — the NHS at our event
               </h3>
-              <p>
+              <p className="mt-2">
                 We are delighted to announce that the NHS has kindly agreed to
                 run its &ldquo;What&rsquo;s Your Blood Type?&rdquo; (WYBT)
                 campaign during our event on 26th September.
               </p>
-              <p>
-                As part of this initiative, NHS volunteers will be available to
-                engage with attendees, provide information about blood donation,
-                and offer those who are interested the opportunity to register
-                as potential blood donors. This collaboration reflects our
-                shared commitment to promoting community wellbeing, public
-                health, and the spirit of selfless service.
-              </p>
-              <p>
-                We warmly encourage all attendees of our event to visit the NHS
-                team, learn more about the importance of blood donation, and
-                consider becoming part of this life-saving initiative.
-              </p>
-              <a
-                href="https://www.blood.co.uk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block pt-1 font-semibold text-red-700 underline"
+
+              {showMore ? (
+                <>
+                  <p className="mt-2">
+                    As part of this initiative, NHS volunteers will be available
+                    to engage with attendees, provide information about blood
+                    donation, and offer those who are interested the opportunity
+                    to register as potential blood donors. This collaboration
+                    reflects our shared commitment to promoting community
+                    wellbeing, public health, and the spirit of selfless
+                    service.
+                  </p>
+                  <p className="mt-2">
+                    We warmly encourage all attendees of our event to visit the
+                    NHS team, learn more about the importance of blood donation,
+                    and consider becoming part of this life-saving initiative.
+                  </p>
+                </>
+              ) : null}
+
+              <button
+                type="button"
+                onClick={() => setShowMore((v) => !v)}
+                className="mt-2 font-semibold text-red-700 underline"
               >
-                Learn more at blood.co.uk →
-              </a>
+                {showMore ? "Show less" : "Read more"}
+              </button>
+
+              <div className="mt-3">
+                <a
+                  href="https://www.blood.co.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-red-700 underline"
+                >
+                  Learn more at blood.co.uk →
+                </a>
+              </div>
             </div>
           </div>
         </div>
