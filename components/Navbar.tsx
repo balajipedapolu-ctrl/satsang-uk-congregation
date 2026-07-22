@@ -44,7 +44,7 @@ export default function Navbar() {
             <span className="block font-serif text-lg font-bold text-maroon-800">
               {EVENT.organisation}
             </span>
-            <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-saffron-700">
+            <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-saffron-700">
               {EVENT.edition} National Congregation
             </span>
           </span>

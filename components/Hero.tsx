@@ -12,12 +12,12 @@ export default function Hero() {
       <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-saffron-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -left-24 top-40 h-72 w-72 rounded-full bg-maroon-200/30 blur-3xl" />
 
-      <div className="container-x relative py-16 sm:py-24">
+      <div className="container-x relative pb-16 pt-4 sm:pb-24 sm:pt-6">
         <HeroBanner />
 
         <div className="mx-auto max-w-3xl text-center animate-fade-up">
           <span className="eyebrow">
-            {EVENT.dateLabel} · {EVENT.venue.name}
+            {EVENT.dateLabel} · Sutton, London
           </span>
 
           <h1 className="mt-6 font-serif text-4xl font-bold leading-tight text-maroon-900 sm:text-5xl md:text-6xl">

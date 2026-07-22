@@ -14,7 +14,7 @@ export const EVENT = {
   timeLabel: "07:00 am – 07:00 pm",
   venue: {
     name: "Nonsuch High School for Girls",
-    address: "Ewell Road, Cheam, Sutton, SM3 8AB",
+    address: "Ewell Road, Cheam, Sutton, London, SM3 8AB",
     postcode: "SM3 8AB",
     mapsQuery: "Nonsuch High School for Girls, Ewell Road, Cheam, Sutton, SM3 8AB",
   },
@@ -24,7 +24,7 @@ export const EVENT = {
 
 export const CONTACT = {
   email: "info@satsanguk.org",
-  phone: "+44 20 0000 0000",
+  phone: "+44 7868 098775",
   whatsapp: "https://chat.whatsapp.com/your-group-invite-code",
 } as const;
 
