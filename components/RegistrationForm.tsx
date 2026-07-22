@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
 import { EVENT, SEVA_OPTIONS } from "@/lib/event";
@@ -43,6 +43,20 @@ export default function RegistrationForm() {
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<Confirmation | null>(null);
   const [showMore, setShowMore] = useState(false);
+  const [zoomOpen, setZoomOpen] = useState(false);
+
+  useEffect(() => {
+    if (!zoomOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setZoomOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [zoomOpen]);
 
   function toggleSeva(option: string) {
     setForm((f) => ({
@@ -91,7 +105,8 @@ export default function RegistrationForm() {
     ].join("\n");
 
     return (
-      <div className="card mx-auto max-w-xl text-center">
+      <>
+        <div className="card mx-auto max-w-xl text-center">
         <span className="text-5xl">✅</span>
         <h2 className="mt-4 font-serif text-2xl font-bold text-maroon-900">
           Registration confirmed!
@@ -122,12 +137,22 @@ export default function RegistrationForm() {
         {/* NHS "What's Your Blood Type?" (WYBT) campaign */}
         <div className="mt-6 rounded-2xl border-2 border-red-200 bg-red-50 p-5 text-left sm:p-6">
           <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/nhs-blood-donation.jpg"
-              alt="NHS — What's Your Blood Type? campaign at the Satsang UK event"
-              className="w-56 shrink-0 rounded-xl bg-white p-1 shadow-soft sm:w-48"
-            />
+            <button
+              type="button"
+              onClick={() => setZoomOpen(true)}
+              aria-label="View the NHS poster full size"
+              className="group mx-auto block w-56 shrink-0 cursor-zoom-in sm:mx-0 sm:w-48"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/nhs-blood-donation.jpg"
+                alt="NHS — What's Your Blood Type? campaign at the Satsang UK event"
+                className="w-full rounded-xl bg-white p-1 shadow-soft transition group-hover:opacity-90"
+              />
+              <span className="mt-1 block text-center text-xs font-semibold text-red-700">
+                🔍 Click to zoom
+              </span>
+            </button>
             <div className="text-sm leading-relaxed text-ink/75">
               <h3 className="font-serif text-lg font-semibold text-red-700">
                 🩸 What&rsquo;s Your Blood Type? — the NHS at our event
@@ -203,7 +228,31 @@ export default function RegistrationForm() {
             Back to home
           </Link>
         </div>
-      </div>
+        </div>
+
+        {zoomOpen ? (
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setZoomOpen(false)}
+          >
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setZoomOpen(false)}
+              className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20"
+            >
+              ✕
+            </button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/nhs-blood-donation.jpg"
+              alt="NHS — What's Your Blood Type? campaign"
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain shadow-2xl"
+            />
+          </div>
+        ) : null}
+      </>
     );
   }
 
