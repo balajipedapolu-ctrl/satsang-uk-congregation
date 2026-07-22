@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:data.london.gov.uk)",
+      "WebFetch(domain:censusdata.uk)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:www.nomisweb.co.uk)",
+      "WebFetch(domain:www.ons.gov.uk)",
+      "WebFetch(domain:www.wunderlustlondon.co.uk)",
+      "WebFetch(domain:www.ethnicity.ac.uk)",
+      "WebFetch(domain:www.essentialliving.co.uk)",
+      "WebFetch(domain:londonist.com)",
+      "WebFetch(domain:ftrlondon.co.uk)",
+      "WebFetch(domain:www.statista.com)",
+      "WebFetch(domain:www.locrating.com)",
+      "WebFetch(domain:reports.ofsted.gov.uk)",
+      "WebFetch(domain:www.daynurseries.co.uk)",
+      "WebFetch(domain:explore.ofsted.gov.uk)",
+      "Bash(npm -v)",
+      "Bash(git --version)",
+      "Bash(npx -v)"
+    ]
+  }
+}
