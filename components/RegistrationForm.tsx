@@ -118,29 +118,42 @@ export default function RegistrationForm() {
           </p>
         </div>
 
-        {/* NHS blood donor registration drive */}
-        <div className="mt-6 overflow-hidden rounded-2xl border border-red-200 bg-red-50 text-left">
-          <div className="flex flex-col items-center gap-4 p-5 sm:flex-row">
+        {/* NHS "What's Your Blood Type?" (WYBT) campaign */}
+        <div className="mt-6 rounded-2xl border border-red-200 bg-red-50 p-5 text-left">
+          <div className="flex flex-col gap-4 sm:flex-row">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/nhs-blood-donation.jpg"
-              alt="NHS — register as a blood donor at the Satsang UK event"
-              className="w-36 shrink-0 rounded-lg shadow-card"
+              alt="NHS — What's Your Blood Type? campaign at the Satsang UK event"
+              className="mx-auto w-40 shrink-0 rounded-lg shadow-card sm:mx-0"
             />
-            <div>
+            <div className="space-y-2 text-sm leading-relaxed text-ink/75">
               <h3 className="font-serif text-lg font-semibold text-red-700">
-                🩸 Give blood at the event
+                🩸 What&rsquo;s Your Blood Type? — the NHS at our event
               </h3>
-              <p className="mt-1 text-sm text-ink/70">
-                The NHS blood donor team will be with us on the day. Come find
-                out your blood type and register as a donor — 10:00 AM to
-                4:00 PM at the venue.
+              <p>
+                We are delighted to announce that the NHS has kindly agreed to
+                run its &ldquo;What&rsquo;s Your Blood Type?&rdquo; (WYBT)
+                campaign during our event on 26th September.
+              </p>
+              <p>
+                As part of this initiative, NHS volunteers will be available to
+                engage with attendees, provide information about blood donation,
+                and offer those who are interested the opportunity to register
+                as potential blood donors. This collaboration reflects our
+                shared commitment to promoting community wellbeing, public
+                health, and the spirit of selfless service.
+              </p>
+              <p>
+                We warmly encourage all attendees of our event to visit the NHS
+                team, learn more about the importance of blood donation, and
+                consider becoming part of this life-saving initiative.
               </p>
               <a
                 href="https://www.blood.co.uk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block text-sm font-semibold text-red-700 underline"
+                className="inline-block pt-1 font-semibold text-red-700 underline"
               >
                 Learn more at blood.co.uk →
               </a>
