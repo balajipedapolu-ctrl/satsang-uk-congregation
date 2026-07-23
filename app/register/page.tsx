@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import RegistrationForm from "@/components/RegistrationForm";
+import NHSCampaignCard from "@/components/NHSCampaignCard";
 import { EVENT } from "@/lib/event";
 
 export const metadata: Metadata = {
@@ -34,6 +35,8 @@ export default function RegisterPage() {
             QR code on completion.
           </p>
         </div>
+
+        <NHSCampaignCard />
 
         <RegistrationForm />
       </div>
