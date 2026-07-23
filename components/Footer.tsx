@@ -64,6 +64,14 @@ export default function Footer() {
                 {CONTACT.phone}
               </a>
             </li>
+            <li>
+              <a
+                href={`tel:${CONTACT.phone2.replace(/\s+/g, "")}`}
+                className="transition hover:text-cream"
+              >
+                {CONTACT.phone2}
+              </a>
+            </li>
             <li className="pt-2 text-cream/70">
               {EVENT.venue.name}
               <br />

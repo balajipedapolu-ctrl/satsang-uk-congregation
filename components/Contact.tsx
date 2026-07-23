@@ -16,6 +16,12 @@ const channels = [
     icon: <path d="M4 5a1 1 0 0 1 1-1h3l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5Z" />,
   },
   {
+    label: "Phone",
+    value: CONTACT.phone2,
+    href: `tel:${CONTACT.phone2.replace(/\s+/g, "")}`,
+    icon: <path d="M4 5a1 1 0 0 1 1-1h3l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5Z" />,
+  },
+  {
     label: "WhatsApp Group",
     value: "Join our community group",
     href: CONTACT.whatsapp,
@@ -38,7 +44,7 @@ export default function Contact() {
           <div className="space-y-4">
             {channels.map((c) => (
               <a
-                key={c.label}
+                key={c.value}
                 href={c.href}
                 target={c.external ? "_blank" : undefined}
                 rel={c.external ? "noopener noreferrer" : undefined}
