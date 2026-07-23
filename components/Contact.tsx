@@ -21,13 +21,6 @@ const channels = [
     href: `tel:${CONTACT.phone2.replace(/\s+/g, "")}`,
     icon: <path d="M4 5a1 1 0 0 1 1-1h3l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5Z" />,
   },
-  {
-    label: "WhatsApp Group",
-    value: "Join our community group",
-    href: CONTACT.whatsapp,
-    external: true,
-    icon: <path d="M12 3a9 9 0 0 0-7.7 13.6L3 21l4.5-1.2A9 9 0 1 0 12 3Zm-3 5c.2 0 .5 0 .7.5l.7 1.6c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4-.1.6a6 6 0 0 0 2.9 2.6c.3.1.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.4.4.6 0 1-1 1.8-1.8 1.9-.7 0-1.6.3-4.2-1.4A8 8 0 0 1 7.5 11C6.8 9.7 7 8.8 7.6 8.3 7.9 8 8.5 8 9 8Z" />,
-  },
 ];
 
 export default function Contact() {
@@ -46,8 +39,6 @@ export default function Contact() {
               <a
                 key={c.value}
                 href={c.href}
-                target={c.external ? "_blank" : undefined}
-                rel={c.external ? "noopener noreferrer" : undefined}
                 className="card flex items-center gap-4 transition hover:-translate-y-0.5 hover:shadow-soft"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-saffron-100 text-saffron-700">

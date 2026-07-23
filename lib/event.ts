@@ -26,7 +26,6 @@ export const CONTACT = {
   email: "Satsang.Unitedkingdom@gmail.com",
   phone: "+44 7868 098775",
   phone2: "+44 7730 416678",
-  whatsapp: "https://chat.whatsapp.com/your-group-invite-code",
 } as const;
 
 // Optional external donation link (Stripe / JustGiving / PayPal etc.)
