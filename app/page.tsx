@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import NHSHighlight from "@/components/NHSHighlight";
 import About from "@/components/About";
 import EventDetails from "@/components/EventDetails";
 import Schedule from "@/components/Schedule";
@@ -11,6 +12,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <NHSHighlight />
       <About />
       <EventDetails />
       <Schedule />
