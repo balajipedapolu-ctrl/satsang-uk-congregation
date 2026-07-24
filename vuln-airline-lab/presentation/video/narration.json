@@ -1,0 +1,9 @@
+[
+  "This is SkyHaven Airways. In the next few minutes, I'll run a full penetration test on this airline website, without writing a single line of code. I'll just talk to Claude, and Claude will drive Burp Suite through M C P.",
+  "First, the overview. M C P, the Model Context Protocol, gives Claude real tools instead of just chat. Burp Suite ships an official M C P server, so Claude gets hands inside Burp: the proxy, repeater, and scanner. Claude is the brain. Burp is the hands.",
+  "Setup is a one time job. In Burp, install the M C P Server extension from the B-App store. Then add that server to Claude's M C P configuration. Save, restart, and Claude can now drive Burp.",
+  "Now, reconnaissance. I ask Claude, in plain English, to map the site using Burp and return a prioritized attack plan. Watch Burp's history fill up. Claude reasons about what each input is likely vulnerable to.",
+  "Then I let it loose. Claude crafts payloads, fires them through Burp's repeater, and confirms each finding with evidence. It bypasses the login with SQL injection, forges the session cookie to become admin, and gets remote code execution, chaining bugs the way a real attacker would.",
+  "This is what automated scanners cannot do. Business logic flaws. Multi step chaining. Access control bugs. And clean triage of real findings. Claude reasons about all of it, and uses Burp to prove it.",
+  "One more prompt, and Claude writes a full P D F report: executive summary, C V S S scores, reproduction steps, and fixes. Thirteen findings, three critical, in minutes. One prompt to test, one prompt to report. Developed by Balaji Pedapolu. Thanks for watching."
+]

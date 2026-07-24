@@ -6,6 +6,13 @@
       "runtimeExecutable": "/Users/balajipedapolu/.local/nodejs/node-v24.18.0-darwin-arm64/bin/node",
       "runtimeArgs": ["node_modules/next/dist/bin/next", "start", "-p", "3100"],
       "port": 3100
+    },
+    {
+      "name": "vuln-airline-lab",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["server.py"],
+      "cwd": "vuln-airline-lab",
+      "port": 8000
     }
   ]
 }

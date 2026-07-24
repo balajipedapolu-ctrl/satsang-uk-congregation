@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://satsanguk.org"),
+  metadataBase: new URL("https://satsangukevents.vercel.app"),
   title: {
     default: `${EVENT.title} · ${EVENT.organisation}`,
     template: `%s · ${EVENT.organisation}`,
