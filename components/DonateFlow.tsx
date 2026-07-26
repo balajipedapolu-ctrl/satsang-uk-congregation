@@ -282,48 +282,69 @@ export default function DonateFlow() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {/* Online / card */}
-            <div className="card flex flex-col items-center text-center">
-              <span className="text-4xl">💳</span>
-              <h3 className="mt-3 font-serif text-xl font-bold text-maroon-900">
-                Give online
-              </h3>
-              <p className="mt-2 text-sm text-ink/70">
-                Pay securely by debit or credit card through our SumUp page.
-              </p>
-              <a
-                href={DONATION_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary mt-5 w-full"
-              >
-                Donate securely with SumUp
-              </a>
-              <p className="mt-3 text-xs text-ink/50">
-                Opens SumUp&rsquo;s secure payment page in a new tab.
-              </p>
-            </div>
-
-            {/* QR code */}
-            <div className="card flex flex-col items-center text-center">
-              <span className="text-4xl">📱</span>
-              <h3 className="mt-3 font-serif text-xl font-bold text-maroon-900">
-                Scan to pay
-              </h3>
-              <p className="mt-2 text-sm text-ink/70">
-                Open your phone camera and scan this code to pay.
-              </p>
-              <div className="mt-5 rounded-2xl bg-white p-4 shadow-card">
-                <Image
-                  src={DONATION_QR}
-                  alt="Scan this QR code to donate via SumUp"
-                  width={200}
-                  height={200}
-                  className="h-48 w-48"
-                />
+          <div className="mx-auto max-w-md">
+            {form.method === "QR code scan" ? (
+              /* QR code */
+              <div className="card flex flex-col items-center text-center">
+                <span className="text-4xl">📱</span>
+                <h3 className="mt-3 font-serif text-xl font-bold text-maroon-900">
+                  Scan to pay
+                </h3>
+                <p className="mt-2 text-sm text-ink/70">
+                  Open your phone camera and scan this code to pay.
+                </p>
+                <div className="mt-5 rounded-2xl bg-white p-4 shadow-card">
+                  <Image
+                    src={DONATION_QR}
+                    alt="Scan this QR code to donate via SumUp"
+                    width={200}
+                    height={200}
+                    className="h-48 w-48"
+                  />
+                </div>
               </div>
-            </div>
+            ) : form.method === "SumUp (card / online)" ? (
+              /* Online / card via SumUp gateway */
+              <div className="card flex flex-col items-center text-center">
+                <span className="text-4xl">💳</span>
+                <h3 className="mt-3 font-serif text-xl font-bold text-maroon-900">
+                  Give online
+                </h3>
+                <p className="mt-2 text-sm text-ink/70">
+                  Pay securely by debit or credit card through our SumUp page.
+                </p>
+                <a
+                  href={DONATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary mt-5 w-full"
+                >
+                  Donate securely with SumUp
+                </a>
+                <p className="mt-3 text-xs text-ink/50">
+                  Opens SumUp&rsquo;s secure payment page in a new tab.
+                </p>
+              </div>
+            ) : (
+              /* Offline methods: bank transfer / cash / other */
+              <div className="card flex flex-col items-center text-center">
+                <span className="text-4xl">
+                  {form.method === "Cash" ? "💷" : "🏦"}
+                </span>
+                <h3 className="mt-3 font-serif text-xl font-bold text-maroon-900">
+                  {form.method}
+                </h3>
+                <p className="mt-2 text-sm text-ink/70">
+                  Please complete your {form.method.toLowerCase()} of{" "}
+                  <span className="font-semibold text-maroon-800">
+                    £{form.amount || "—"}
+                  </span>
+                  . If you&rsquo;d prefer to pay by card instead, you can go back
+                  and choose &ldquo;SumUp (card / online)&rdquo; or
+                  &ldquo;QR code scan&rdquo;.
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Confirm payment + record */}
