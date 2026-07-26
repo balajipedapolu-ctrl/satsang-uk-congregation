@@ -20,8 +20,15 @@ export default function Hero() {
             {EVENT.dateLabel} · Sutton, London
           </span>
 
-          <h1 className="mt-6 font-serif text-4xl font-bold leading-tight text-maroon-900 sm:text-5xl md:text-6xl">
-            {EVENT.title}
+          <p className="mt-6 font-serif font-extrabold leading-none text-saffron-500 drop-shadow-sm">
+            <span className="text-7xl sm:text-8xl md:text-9xl">
+              {EVENT.editionNumber}
+            </span>
+            <sup className="align-super text-3xl sm:text-4xl md:text-5xl">th</sup>
+          </p>
+
+          <h1 className="mt-3 font-serif text-3xl font-bold leading-tight text-maroon-900 sm:text-4xl md:text-5xl">
+            {EVENT.name}
           </h1>
 
           <p className="mt-4 text-lg font-medium text-saffron-800 sm:text-xl">

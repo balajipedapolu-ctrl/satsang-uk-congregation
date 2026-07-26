@@ -40,12 +40,16 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         >
           <Logo className="h-11 w-11" />
+          <span className="font-serif text-2xl font-extrabold leading-none text-saffron-600 sm:text-3xl">
+            {EVENT.editionNumber}
+            <sup className="align-super text-xs sm:text-sm">th</sup>
+          </span>
           <span className="leading-tight">
-            <span className="block font-serif text-lg font-bold text-maroon-800">
+            <span className="block font-serif text-base font-bold text-maroon-800 sm:text-lg">
               {EVENT.organisation}
             </span>
-            <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-saffron-700">
-              {EVENT.edition} National Congregation
+            <span className="block text-[10px] font-bold uppercase tracking-[0.16em] text-saffron-700 sm:text-[11px]">
+              National Congregation
             </span>
           </span>
         </Link>

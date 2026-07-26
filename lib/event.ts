@@ -5,7 +5,10 @@
 
 export const EVENT = {
   edition: "19th",
-  title: "19th Satsang National Congregation",
+  editionNumber: "19",
+  title: "19th Satsang UK National Congregation",
+  // Name without the edition prefix (the big "19th" is shown separately).
+  name: "Satsang UK National Congregation",
   occasion:
     "Celebrating the 139th Birth Anniversary of Sree Sree Thakur Anukulchandra",
   // ISO date-time in UK time. Used by the countdown timer.
