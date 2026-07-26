@@ -21,28 +21,48 @@ The flow: **Website → Google Apps Script (a tiny web app) → your Sheet.**
 function doPost(e) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheets()[0];
+    var d = JSON.parse(e.postData.contents);
 
-    // Add a header row the first time
-    if (sheet.getLastRow() === 0) {
+    if (d.type === 'donation') {
+      // Donations go to their own "Donations" tab
+      var don = ss.getSheetByName('Donations') || ss.insertSheet('Donations');
+      if (don.getLastRow() === 0) {
+        don.appendRow([
+          'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
+          'Amount (£)', 'Method', 'Message'
+        ]);
+      }
+      don.appendRow([
+        new Date(),
+        d.reference || '',
+        d.name || '',
+        d.email || '',
+        d.phone || '',
+        d.amount || '',
+        d.method || '',
+        d.message || ''
+      ]);
+    } else {
+      // Registrations go to the first sheet
+      var sheet = ss.getSheets()[0];
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow([
+          'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
+          'Location', 'Attendees', 'Volunteer', 'Seva'
+        ]);
+      }
       sheet.appendRow([
-        'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
-        'Location', 'Attendees', 'Volunteer', 'Seva'
+        new Date(),
+        d.reference || '',
+        d.name || '',
+        d.email || '',
+        d.phone || '',
+        d.location || '',
+        d.attendees || '',
+        d.wantsToVolunteer ? 'Yes' : 'No',
+        (d.seva || []).join(', ')
       ]);
     }
-
-    var d = JSON.parse(e.postData.contents);
-    sheet.appendRow([
-      new Date(),
-      d.reference || '',
-      d.name || '',
-      d.email || '',
-      d.phone || '',
-      d.location || '',
-      d.attendees || '',
-      d.wantsToVolunteer ? 'Yes' : 'No',
-      (d.seva || []).join(', ')
-    ]);
 
     return ContentService
       .createTextOutput(JSON.stringify({ ok: true }))
@@ -54,6 +74,11 @@ function doPost(e) {
   }
 }
 ```
+
+> **Already set up registrations?** Just replace your existing script with the
+> version above, then **Deploy → Manage deployments → edit ✏️ → Version: New
+> version → Deploy**. The webhook URL stays the same, and donations will start
+> landing on a new **"Donations"** tab automatically.
 
 3. Click the **Save** icon (💾).
 

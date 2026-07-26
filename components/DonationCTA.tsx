@@ -1,4 +1,5 @@
-import { DONATION_URL, EVENT } from "@/lib/event";
+import Link from "next/link";
+import { EVENT } from "@/lib/event";
 
 export default function DonationCTA() {
   return (
@@ -17,16 +18,11 @@ export default function DonationCTA() {
             and organise a memorable {EVENT.edition} National Congregation. Every
             offering, big or small, is received with gratitude.
           </p>
-          <a
-            href={DONATION_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary text-base"
-          >
+          <Link href="/donate" className="btn-primary text-base">
             Donate / Contribute
-          </a>
+          </Link>
           <p className="text-xs text-cream/50">
-            You will be redirected to our secure donation page.
+            Give securely online or by scanning our QR code.
           </p>
         </div>
       </div>

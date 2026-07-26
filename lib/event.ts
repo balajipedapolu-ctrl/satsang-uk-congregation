@@ -28,8 +28,9 @@ export const CONTACT = {
   phone2: "+44 7730 416678",
 } as const;
 
-// Optional external donation link (Stripe / JustGiving / PayPal etc.)
-export const DONATION_URL = "https://www.justgiving.com/your-campaign";
+// Secure online payment link (SumUp) and the matching QR code in /public.
+export const DONATION_URL = "https://pay.sumup.com/b2c/QZ9MBBX7";
+export const DONATION_QR = "/donate-qr.png";
 
 export type ScheduleItem = {
   start: string;

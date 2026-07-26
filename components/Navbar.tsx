@@ -61,6 +61,12 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/donate"
+            className="text-sm font-semibold text-maroon-700 transition hover:text-saffron-700"
+          >
+            Donate
+          </Link>
           <Link href="/register" className="btn-primary">
             Register Now
           </Link>
@@ -113,9 +119,16 @@ export default function Navbar() {
           ))}
         </div>
         <Link
+          href="/donate"
+          onClick={() => setOpen(false)}
+          className="btn-secondary mt-8 w-full"
+        >
+          Donate
+        </Link>
+        <Link
           href="/register"
           onClick={() => setOpen(false)}
-          className="btn-primary mt-8 w-full"
+          className="btn-primary mt-3 w-full"
         >
           Register Now
         </Link>
