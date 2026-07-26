@@ -10,6 +10,7 @@ type FormState = {
   amount: string;
   method: string;
   message: string;
+  confirmedPaid: boolean;
 };
 
 type Confirmation = {
@@ -25,6 +26,7 @@ const initialState: FormState = {
   amount: "",
   method: "SumUp (card / online)",
   message: "",
+  confirmedPaid: false,
 };
 
 const METHODS = [
@@ -211,9 +213,25 @@ export default function DonationForm() {
         </div>
       </div>
 
+      <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-saffron-100 bg-cream/60 p-4">
+        <input
+          type="checkbox"
+          required
+          checked={form.confirmedPaid}
+          onChange={(e) =>
+            setForm({ ...form, confirmedPaid: e.target.checked })
+          }
+          className="mt-1 h-4 w-4 accent-saffron-600"
+        />
+        <span className="text-sm text-ink/80">
+          I confirm I have completed my payment (via the SumUp button, QR code or
+          another method). <span className="text-maroon-500">*</span>
+        </span>
+      </label>
+
       <button
         type="submit"
-        disabled={submitting}
+        disabled={submitting || !form.confirmedPaid}
         className="btn-primary w-full text-base disabled:cursor-not-allowed disabled:opacity-60"
       >
         {submitting ? "Saving…" : "Record my donation"}
