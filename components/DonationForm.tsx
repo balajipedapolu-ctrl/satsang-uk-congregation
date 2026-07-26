@@ -9,6 +9,7 @@ type FormState = {
   phone: string;
   amount: string;
   method: string;
+  receipt: string;
   message: string;
   confirmedPaid: boolean;
 };
@@ -25,6 +26,7 @@ const initialState: FormState = {
   phone: "",
   amount: "",
   method: "SumUp (card / online)",
+  receipt: "",
   message: "",
   confirmedPaid: false,
 };
@@ -196,6 +198,23 @@ export default function DonationForm() {
               </option>
             ))}
           </select>
+        </div>
+
+        <div className="sm:col-span-2">
+          <label htmlFor="d-receipt" className="field-label">
+            SumUp receipt / transaction number
+          </label>
+          <input
+            id="d-receipt"
+            value={form.receipt}
+            onChange={(e) => setForm({ ...form, receipt: e.target.value })}
+            className="field-input"
+            placeholder="From your SumUp receipt (helps us match your payment)"
+          />
+          <p className="mt-1 text-xs text-ink/50">
+            Optional but very helpful — it lets us match your gift to the payment.
+            You&rsquo;ll find it on the SumUp confirmation screen or receipt email.
+          </p>
         </div>
 
         <div className="sm:col-span-2">

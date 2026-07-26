@@ -29,7 +29,7 @@ function doPost(e) {
       if (don.getLastRow() === 0) {
         don.appendRow([
           'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
-          'Amount (£)', 'Method', 'Message'
+          'Amount (£)', 'Method', 'SumUp Ref', 'Message'
         ]);
       }
       don.appendRow([
@@ -40,6 +40,7 @@ function doPost(e) {
         d.phone || '',
         d.amount || '',
         d.method || '',
+        d.receipt || '',
         d.message || ''
       ]);
     } else {
@@ -113,6 +114,23 @@ Add the URL as an environment variable in Vercel:
 
 Register a test person on your live site — a new row should appear in your
 Sheet within a couple of seconds.
+
+---
+
+## Verifying donations without SumUp API access
+
+A SumUp payment *link* doesn't notify the website when a payment succeeds, so
+the donation form is a **self-report** — it can't prove money actually arrived.
+That's fine; verify it this way instead:
+
+1. **SumUp is your source of truth.** Every real card payment appears in your
+   **SumUp dashboard** (and emails you a receipt) with the payer's name, amount,
+   date and a transaction ID. Reconcile the sheet against it.
+2. **Match by receipt number.** The donation form asks for the **SumUp receipt /
+   transaction number** (saved in the "SumUp Ref" column). Match each sheet row
+   to a real SumUp transaction in seconds — a made-up number won't match.
+3. **Optional CSV import.** In SumUp you can export transactions as CSV and paste
+   them into a third tab (e.g. "SumUp Export") so everything lives in one file.
 
 ---
 

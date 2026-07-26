@@ -45,6 +45,7 @@ export async function POST(request: Request) {
             phone: String(body?.phone ?? ""),
             amount,
             method: String(body?.method ?? ""),
+            receipt: String(body?.receipt ?? ""),
             message: String(body?.message ?? ""),
           }),
         });
