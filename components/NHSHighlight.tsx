@@ -8,7 +8,7 @@ export default function NHSHighlight() {
   return (
     <section
       id="nhs"
-      className="relative overflow-hidden bg-gradient-to-b from-cream to-saffron-50/40 py-14 sm:py-20"
+      className="relative overflow-hidden bg-gradient-to-b from-cream to-saffron-50/40 py-9 sm:py-20"
     >
       <div className="container-x">
         <div className="mx-auto mb-8 max-w-2xl text-center">

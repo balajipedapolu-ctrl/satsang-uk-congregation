@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-saffron-200/40 blur-3xl" />
       <div className="pointer-events-none absolute -left-24 top-40 h-72 w-72 rounded-full bg-maroon-200/30 blur-3xl" />
 
-      <div className="container-x relative pb-16 pt-4 sm:pb-24 sm:pt-6">
+      <div className="container-x relative pb-12 pt-4 sm:pb-24 sm:pt-6">
         <HeroBanner />
 
         <div className="mx-auto max-w-3xl text-center animate-fade-up">
@@ -58,7 +58,7 @@ export default function Hero() {
         </div>
 
         {/* Countdown */}
-        <div className="mt-14 flex flex-col items-center gap-4">
+        <div className="mt-10 flex flex-col items-center gap-4 sm:mt-14">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-saffron-700">
             Counting down to the congregation
           </p>
