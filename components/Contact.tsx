@@ -54,11 +54,11 @@ export default function Contact() {
                     {c.icon}
                   </svg>
                 </span>
-                <span>
+                <span className="min-w-0">
                   <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-saffron-700">
                     {c.label}
                   </span>
-                  <span className="mt-0.5 block font-medium text-maroon-900">
+                  <span className="mt-0.5 block break-words font-medium text-maroon-900">
                     {c.value}
                   </span>
                 </span>

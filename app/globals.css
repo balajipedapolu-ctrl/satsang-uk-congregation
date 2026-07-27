@@ -9,10 +9,14 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-cream text-ink antialiased;
+    /* Prevent the off-canvas mobile menu (translated off-screen) from
+       creating horizontal scroll that shifts the page sideways. */
+    overflow-x: hidden;
   }
 
   /* Offset anchor targets so sticky header never covers headings */
