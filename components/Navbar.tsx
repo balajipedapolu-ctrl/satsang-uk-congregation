@@ -25,6 +25,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
@@ -103,10 +104,12 @@ export default function Navbar() {
           </div>
         </button>
       </nav>
+    </header>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (sibling of header so the header's backdrop-blur doesn't
+          clip this fixed overlay to the header's height) */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col bg-cream px-6 pb-10 pt-24 transition-transform duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 flex flex-col overflow-y-auto bg-cream px-6 pb-10 pt-24 transition-transform duration-300 lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -137,6 +140,6 @@ export default function Navbar() {
           Register Now
         </Link>
       </div>
-    </header>
+    </>
   );
 }
