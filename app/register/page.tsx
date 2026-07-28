@@ -36,7 +36,7 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        <NHSCampaignCard />
+        <NHSCampaignCard showBloodLink={false} />
 
         <RegistrationForm />
       </div>

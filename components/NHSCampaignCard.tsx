@@ -6,7 +6,13 @@ import { useEffect, useState } from "react";
  * NHS "What's Your Blood Type?" (WYBT) campaign card, shown at the top of the
  * registration page. Includes a Read-more toggle and a click-to-zoom lightbox.
  */
-export default function NHSCampaignCard() {
+export default function NHSCampaignCard({
+  showBloodLink = true,
+}: {
+  /** Show the "Learn more at blood.co.uk" link. Hidden on the register page,
+   *  where the link now lives in the post-registration blood-donor flow. */
+  showBloodLink?: boolean;
+}) {
   const [showMore, setShowMore] = useState(false);
   const [zoomOpen, setZoomOpen] = useState(false);
 
@@ -79,16 +85,18 @@ export default function NHSCampaignCard() {
               {showMore ? "Show less" : "Read more"}
             </button>
 
-            <div className="mt-3">
-              <a
-                href="https://www.blood.co.uk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-red-700 underline"
-              >
-                Learn more at blood.co.uk →
-              </a>
-            </div>
+            {showBloodLink ? (
+              <div className="mt-3">
+                <a
+                  href="https://www.blood.co.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-red-700 underline"
+                >
+                  Learn more at blood.co.uk →
+                </a>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

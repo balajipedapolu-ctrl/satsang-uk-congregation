@@ -23,7 +23,26 @@ function doPost(e) {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var d = JSON.parse(e.postData.contents);
 
-    if (d.type === 'donation') {
+    if (d.type === 'blood-donor') {
+      // Blood-donation interest goes to its own "Blood Donors" tab
+      var bd = ss.getSheetByName('Blood Donors') || ss.insertSheet('Blood Donors');
+      if (bd.getLastRow() === 0) {
+        bd.appendRow([
+          'Timestamp', 'Reference', 'First Name', 'Last Name',
+          'Mobile', 'Postcode', 'Email', 'Consent'
+        ]);
+      }
+      bd.appendRow([
+        new Date(),
+        d.reference || '',
+        d.firstName || '',
+        d.lastName || '',
+        d.mobile || '',
+        d.postcode || '',
+        d.email || '',
+        d.consent ? 'Yes' : 'No'
+      ]);
+    } else if (d.type === 'donation') {
       // Donations go to their own "Donations" tab
       var don = ss.getSheetByName('Donations') || ss.insertSheet('Donations');
       if (don.getLastRow() === 0) {

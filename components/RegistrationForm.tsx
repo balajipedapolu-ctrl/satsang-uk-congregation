@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
+import BloodDonorSignup from "@/components/BloodDonorSignup";
 import { EVENT, SEVA_OPTIONS } from "@/lib/event";
 
 type FormState = {
@@ -90,7 +91,8 @@ export default function RegistrationForm() {
     ].join("\n");
 
     return (
-      <div className="card mx-auto max-w-xl text-center">
+      <div className="mx-auto max-w-xl space-y-10">
+        <div className="card text-center">
         <span className="text-5xl">✅</span>
         <h2 className="mt-4 font-serif text-2xl font-bold text-maroon-900">
           Registration confirmed!
@@ -141,6 +143,18 @@ export default function RegistrationForm() {
           <Link href="/" className="btn-primary">
             Back to home
           </Link>
+        </div>
+        </div>
+
+        {/* NHS blood-donation invitation, shown after registration */}
+        <div>
+          <div className="mb-5 text-center">
+            <span className="eyebrow">One more way to help</span>
+            <h3 className="mt-2 font-serif text-2xl font-bold text-maroon-900">
+              Give the gift of life 🩸
+            </h3>
+          </div>
+          <BloodDonorSignup />
         </div>
       </div>
     );
