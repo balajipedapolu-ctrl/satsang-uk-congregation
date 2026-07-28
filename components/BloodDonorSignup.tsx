@@ -81,13 +81,6 @@ export default function BloodDonorSignup() {
           below.
         </p>
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/nhs-blood-donation.jpg"
-          alt="NHS — What's Your Blood Type? Register to become a blood donor"
-          className="mx-auto mt-5 w-full max-w-xs rounded-xl bg-white p-1 shadow-soft"
-        />
-
         <a
           href={NHS_URL}
           target="_blank"

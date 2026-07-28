@@ -1,20 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import BloodDonorSignup from "@/components/BloodDonorSignup";
 
 /**
- * NHS "What's Your Blood Type?" (WYBT) campaign card, shown at the top of the
- * registration page. Includes a Read-more toggle and a click-to-zoom lightbox.
+ * NHS "What's Your Blood Type?" (WYBT) campaign card. Includes a Read-more
+ * toggle, a click-to-zoom lightbox, and an "Interested in becoming a blood
+ * donor?" link that reveals the blood-donor sign-up form inline.
  */
-export default function NHSCampaignCard({
-  showBloodLink = true,
-}: {
-  /** Show the "Learn more at blood.co.uk" link. Hidden on the register page,
-   *  where the link now lives in the post-registration blood-donor flow. */
-  showBloodLink?: boolean;
-}) {
+export default function NHSCampaignCard() {
   const [showMore, setShowMore] = useState(false);
   const [zoomOpen, setZoomOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     if (!zoomOpen) return;
@@ -85,21 +82,24 @@ export default function NHSCampaignCard({
               {showMore ? "Show less" : "Read more"}
             </button>
 
-            {showBloodLink ? (
-              <div className="mt-3">
-                <a
-                  href="https://www.blood.co.uk"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-red-700 underline"
-                >
-                  Learn more at blood.co.uk →
-                </a>
-              </div>
-            ) : null}
+            <div className="mt-3">
+              <button
+                type="button"
+                onClick={() => setShowForm((v) => !v)}
+                className="font-semibold text-red-700 underline"
+              >
+                🩸 Interested in becoming a blood donor? →
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {showForm ? (
+        <div className="mx-auto mb-10 max-w-xl">
+          <BloodDonorSignup />
+        </div>
+      ) : null}
 
       {zoomOpen ? (
         <div
