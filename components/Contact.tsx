@@ -33,7 +33,7 @@ export default function Contact() {
           subtitle="Have a question about the congregation, registration or seva? Reach out through any of the channels below."
         />
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid gap-8 lg:grid-cols-2 [&>*]:min-w-0">
           <div className="space-y-4">
             {channels.map((c) => (
               <a

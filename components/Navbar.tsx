@@ -107,10 +107,14 @@ export default function Navbar() {
     </header>
 
       {/* Mobile menu (sibling of header so the header's backdrop-blur doesn't
-          clip this fixed overlay to the header's height) */}
+          clip this fixed overlay to the header's height). We fade it in place
+          rather than sliding it off-screen — an off-screen fixed element still
+          expands the page width on iOS Safari / Android Chrome, which shifts
+          and clips the page content. */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col overflow-y-auto bg-cream px-6 pb-10 pt-24 transition-transform duration-300 lg:hidden ${
-          open ? "translate-x-0" : "translate-x-full"
+        aria-hidden={!open}
+        className={`fixed inset-0 z-40 flex flex-col overflow-y-auto bg-cream px-6 pb-10 pt-24 transition-opacity duration-300 lg:hidden ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
         <div className="flex flex-col gap-1">
