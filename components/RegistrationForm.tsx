@@ -147,7 +147,18 @@ export default function RegistrationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="card mx-auto max-w-xl space-y-5">
+    <div className="mx-auto max-w-xl">
+      <div className="mb-6 text-center">
+        <h2 className="font-serif text-2xl font-bold text-maroon-900 sm:text-3xl">
+          Who&rsquo;s joining the utsav?
+        </h2>
+        <p className="mt-2 text-ink/70">
+          Please share a few details of everyone coming along. It helps us
+          prepare prasad, seating and a warm welcome for all.
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="card space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="name" className="field-label">
@@ -282,6 +293,7 @@ export default function RegistrationForm() {
         By registering you agree to receive event-related communication from{" "}
         {EVENT.organisation}. We never share your details.
       </p>
-    </form>
+      </form>
+    </div>
   );
 }
