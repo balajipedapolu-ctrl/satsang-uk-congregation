@@ -77,9 +77,16 @@ export default function BloodDonorSignup() {
           <span className="font-mono font-semibold text-red-700">
             {reference}
           </span>
-          ). One final step — register and book your first donation with the NHS
-          below.
+          ). One final step — scan the QR code below (or use the button) to
+          register and book your first donation with the NHS.
         </p>
+
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/blood.jpeg"
+          alt="NHS — What's Your Blood Type? Register to become a blood donor, book your first donation and find out your blood type"
+          className="mx-auto mt-5 w-full max-w-sm rounded-xl bg-white p-1 shadow-soft"
+        />
 
         <a
           href={NHS_URL}
