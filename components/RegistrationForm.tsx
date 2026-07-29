@@ -140,17 +140,8 @@ export default function RegistrationForm() {
             </p>
             <p className="mt-1 text-sm text-ink/75">
               The NHS team will be at the event to help you register and find out
-              your blood type. You can also register and book your first donation
-              now.
+              your blood type.
             </p>
-            <a
-              href="https://www.blood.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary mt-5 w-full !bg-red-600 hover:!bg-red-700"
-            >
-              Register &amp; book at blood.co.uk →
-            </a>
           </div>
         ) : null}
 
