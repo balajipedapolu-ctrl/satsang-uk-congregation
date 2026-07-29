@@ -267,7 +267,7 @@ export default function RegistrationForm() {
                 attendees: Math.max(1, Number(e.target.value) || 1),
               })
             }
-            className="field-input"
+            className="field-input font-medium !text-black"
           />
         </div>
       </div>
