@@ -11,7 +11,7 @@ type FormState = {
   phone: string;
   location: string;
   postcode: string;
-  attendees: number;
+  attendees: string;
   wantsToVolunteer: boolean;
   seva: string[];
   bloodDonorInterest: boolean;
@@ -20,7 +20,7 @@ type FormState = {
 type Confirmation = {
   reference: string;
   name: string;
-  attendees: number;
+  attendees: string;
   seva: string[];
   bloodDonorInterest: boolean;
 };
@@ -31,7 +31,7 @@ const initialState: FormState = {
   phone: "",
   location: "",
   postcode: "",
-  attendees: 1,
+  attendees: "",
   wantsToVolunteer: false,
   seva: [],
   bloodDonorInterest: false,
@@ -262,12 +262,10 @@ export default function RegistrationForm() {
             required
             value={form.attendees}
             onChange={(e) =>
-              setForm({
-                ...form,
-                attendees: Math.max(1, Number(e.target.value) || 1),
-              })
+              setForm({ ...form, attendees: e.target.value })
             }
-            className="field-input font-medium !text-black"
+            className="field-input"
+            placeholder="e.g. 2"
           />
         </div>
       </div>
