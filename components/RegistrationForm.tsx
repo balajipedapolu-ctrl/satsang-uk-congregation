@@ -10,6 +10,7 @@ type FormState = {
   email: string;
   phone: string;
   location: string;
+  postcode: string;
   attendees: number;
   wantsToVolunteer: boolean;
   seva: string[];
@@ -29,6 +30,7 @@ const initialState: FormState = {
   email: "",
   phone: "",
   location: "",
+  postcode: "",
   attendees: 1,
   wantsToVolunteer: false,
   seva: [],
@@ -141,12 +143,6 @@ export default function RegistrationForm() {
               your blood type. You can also register and book your first donation
               now.
             </p>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/blood.jpeg"
-              alt="NHS — What's Your Blood Type? Register to become a blood donor, book your first donation and find out your blood type"
-              className="mx-auto mt-4 w-full max-w-xs rounded-xl bg-white p-1 shadow-soft"
-            />
             <a
               href="https://www.blood.co.uk"
               target="_blank"
@@ -246,6 +242,20 @@ export default function RegistrationForm() {
             onChange={(e) => setForm({ ...form, location: e.target.value })}
             className="field-input"
             placeholder="e.g. London"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="postcode" className="field-label">
+            Postcode <span className="text-maroon-500">*</span>
+          </label>
+          <input
+            id="postcode"
+            required
+            value={form.postcode}
+            onChange={(e) => setForm({ ...form, postcode: e.target.value })}
+            className="field-input"
+            placeholder="e.g. SM3 8AB"
           />
         </div>
 
