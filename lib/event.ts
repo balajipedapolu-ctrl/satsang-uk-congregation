@@ -14,7 +14,7 @@ export const EVENT = {
   // ISO date-time in UK time. Used by the countdown timer.
   startsAtISO: "2026-09-26T07:00:00+01:00",
   dateLabel: "Saturday, 26th September 2026",
-  timeLabel: "07:00 am – 07:00 pm",
+  timeLabel: "07:00 am – 08:30 pm",
   venue: {
     name: "Nonsuch High School for Girls",
     address: "Ewell Road, Cheam, Sutton, London, SM3 8AB",
