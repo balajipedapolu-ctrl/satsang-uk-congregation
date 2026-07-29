@@ -19,6 +19,17 @@
     overflow-x: hidden;
   }
 
+  /* Remove the up/down spinner arrows from number inputs (keep them editable) */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
   /* Offset anchor targets so sticky header never covers headings */
   section[id],
   div[id] {
