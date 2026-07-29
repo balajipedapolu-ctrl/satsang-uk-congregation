@@ -13,6 +13,7 @@ type FormState = {
   attendees: number;
   wantsToVolunteer: boolean;
   seva: string[];
+  bloodDonorInterest: boolean;
 };
 
 type Confirmation = {
@@ -20,6 +21,7 @@ type Confirmation = {
   name: string;
   attendees: number;
   seva: string[];
+  bloodDonorInterest: boolean;
 };
 
 const initialState: FormState = {
@@ -30,6 +32,7 @@ const initialState: FormState = {
   attendees: 1,
   wantsToVolunteer: false,
   seva: [],
+  bloodDonorInterest: false,
 };
 
 // Client-side fallback reference generator (used if the API is unavailable).
@@ -76,6 +79,7 @@ export default function RegistrationForm() {
       name: form.name,
       attendees: form.attendees,
       seva: form.wantsToVolunteer ? form.seva : [],
+      bloodDonorInterest: form.bloodDonorInterest,
     });
     setSubmitting(false);
   }
@@ -125,6 +129,33 @@ export default function RegistrationForm() {
               {result.seva.join(", ")}
             </span>
           </p>
+        ) : null}
+
+        {result.bloodDonorInterest ? (
+          <div className="mt-6 rounded-2xl border-2 border-red-200 bg-red-50 p-5">
+            <p className="font-serif text-lg font-semibold text-red-700">
+              🩸 Thank you for your interest in blood donation!
+            </p>
+            <p className="mt-1 text-sm text-ink/75">
+              The NHS team will be at the event to help you register and find out
+              your blood type. You can also register and book your first donation
+              now.
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/blood.jpeg"
+              alt="NHS — What's Your Blood Type? Register to become a blood donor, book your first donation and find out your blood type"
+              className="mx-auto mt-4 w-full max-w-xs rounded-xl bg-white p-1 shadow-soft"
+            />
+            <a
+              href="https://www.blood.co.uk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-5 w-full !bg-red-600 hover:!bg-red-700"
+            >
+              Register &amp; book at blood.co.uk →
+            </a>
+          </div>
         ) : null}
 
         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
@@ -279,6 +310,30 @@ export default function RegistrationForm() {
             ))}
           </div>
         ) : null}
+      </div>
+
+      {/* NHS blood-donor interest */}
+      <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+        <label className="flex cursor-pointer items-start gap-3">
+          <input
+            type="checkbox"
+            checked={form.bloodDonorInterest}
+            onChange={(e) =>
+              setForm({ ...form, bloodDonorInterest: e.target.checked })
+            }
+            className="mt-1 h-4 w-4 accent-red-600"
+          />
+          <span>
+            <span className="font-medium text-maroon-900">
+              🩸 I&rsquo;m interested in becoming an NHS blood donor
+            </span>
+            <span className="mt-0.5 block text-sm text-ink/60">
+              The NHS &ldquo;What&rsquo;s Your Blood Type?&rdquo; team will be at
+              the event. Tick this and they&rsquo;ll help you register and find
+              out your blood type on the day.
+            </span>
+          </span>
+        </label>
       </div>
 
       <button

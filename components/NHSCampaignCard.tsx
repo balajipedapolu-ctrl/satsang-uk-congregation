@@ -1,17 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import BloodDonorSignup from "@/components/BloodDonorSignup";
 
 /**
  * NHS "What's Your Blood Type?" (WYBT) campaign card. Includes a Read-more
- * toggle, a click-to-zoom lightbox, and an "Interested in becoming a blood
- * donor?" link that reveals the blood-donor sign-up form inline.
+ * toggle and a click-to-zoom lightbox. (Blood-donor interest is captured via a
+ * checkbox on the registration form.)
  */
 export default function NHSCampaignCard() {
   const [showMore, setShowMore] = useState(false);
   const [zoomOpen, setZoomOpen] = useState(false);
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     if (!zoomOpen) return;
@@ -81,31 +79,9 @@ export default function NHSCampaignCard() {
             >
               {showMore ? "Show less" : "Read more"}
             </button>
-
-            <div className="mt-3">
-              <button
-                type="button"
-                onClick={() => setShowForm((v) => !v)}
-                className="font-semibold text-red-700 underline"
-              >
-                🩸 Interested in becoming a blood donor? →
-              </button>
-            </div>
           </div>
         </div>
       </div>
-
-      {showForm ? (
-        <div className="mx-auto mb-10 max-w-xl">
-          <div className="mb-5 text-center">
-            <span className="eyebrow">One more way to help</span>
-            <h3 className="mt-2 font-serif text-2xl font-bold text-maroon-900">
-              Give the gift of life 🩸
-            </h3>
-          </div>
-          <BloodDonorSignup />
-        </div>
-      ) : null}
 
       {zoomOpen ? (
         <div

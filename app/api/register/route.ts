@@ -45,6 +45,7 @@ export async function POST(request: Request) {
             attendees: body?.attendees ?? "",
             wantsToVolunteer: Boolean(body?.wantsToVolunteer),
             seva: Array.isArray(body?.seva) ? body.seva : [],
+            bloodDonorInterest: Boolean(body?.bloodDonorInterest),
           }),
         });
       } catch (err) {
