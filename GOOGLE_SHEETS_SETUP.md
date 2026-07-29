@@ -23,7 +23,14 @@ function doPost(e) {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var d = JSON.parse(e.postData.contents);
 
-    if (d.type === 'donation') {
+    if (d.type === 'message') {
+      // Contact-form messages go to their own "Messages" tab
+      var msg = ss.getSheetByName('Messages') || ss.insertSheet('Messages');
+      if (msg.getLastRow() === 0) {
+        msg.appendRow(['Timestamp', 'Name', 'Email', 'Message']);
+      }
+      msg.appendRow([new Date(), d.name || '', d.email || '', d.message || '']);
+    } else if (d.type === 'donation') {
       // Donations go to their own "Donations" tab
       var don = ss.getSheetByName('Donations') || ss.insertSheet('Donations');
       if (don.getLastRow() === 0) {

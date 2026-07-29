@@ -2,8 +2,10 @@ import { NextResponse } from "next/server";
 
 /**
  * Handles general contact-form enquiries.
- * Validates the payload and returns success. To deliver these messages to your
- * inbox, wire in an email provider (see README) where indicated below.
+ *
+ * Saves each message to a "Messages" tab in the same Google Sheet used for
+ * registrations, if the webhook (GOOGLE_SHEETS_WEBHOOK_URL) is configured.
+ * If it isn't set, the form still works — it just won't persist the message.
  */
 export async function POST(request: Request) {
   try {
@@ -20,9 +22,23 @@ export async function POST(request: Request) {
       );
     }
 
-    // --- Optional: forward the enquiry to your inbox -----------------------
-    // See README ("Enabling confirmation emails") for a Resend example.
-    // -----------------------------------------------------------------------
+    const webhook = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    if (webhook) {
+      try {
+        await fetch(webhook, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ type: "message", name, email, message }),
+        });
+      } catch (err) {
+        // Don't block the visitor if the sheet is unreachable — just log it.
+        console.error("Could not save contact message to Google Sheet:", err);
+      }
+    } else {
+      console.warn(
+        "GOOGLE_SHEETS_WEBHOOK_URL is not set — contact message was not saved.",
+      );
+    }
 
     return NextResponse.json({ ok: true });
   } catch {
