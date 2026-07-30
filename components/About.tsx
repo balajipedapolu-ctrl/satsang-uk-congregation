@@ -57,7 +57,7 @@ export default function About() {
               </blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
                 <span className="h-px w-10 bg-saffron-400" />
-                <span className="text-sm font-semibold uppercase tracking-[0.15em] text-saffron-700">
+                <span className="text-xs font-semibold uppercase tracking-[0.15em] text-saffron-700">
                   Sree Sree Thakur Anukulchandra
                 </span>
               </figcaption>
