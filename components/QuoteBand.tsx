@@ -16,9 +16,9 @@ export default function QuoteBand() {
           <blockquote className="-mt-4 font-serif text-2xl font-medium leading-relaxed text-maroon-900 sm:text-3xl">
             {THAKUR_QUOTE.text}
           </blockquote>
-          <figcaption className="mt-6 flex items-center gap-3">
-            <span className="h-px w-10 bg-saffron-400" />
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-saffron-700">
+          <figcaption className="mt-6 flex items-center gap-2 sm:gap-3">
+            <span className="h-px w-6 shrink-0 bg-saffron-400 sm:w-10" />
+            <span className="whitespace-nowrap text-[10px] font-semibold uppercase tracking-normal text-saffron-700 sm:text-xs sm:tracking-[0.15em]">
               {THAKUR_QUOTE.author}
             </span>
           </figcaption>
