@@ -11,6 +11,13 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURICom
 
 const facts = [
   {
+    label: "Admission",
+    value: "Free entry — everyone welcome",
+    icon: (
+      <path d="M4 9a2 2 0 0 0 0 4v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a2 2 0 0 0 0-4V6a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v3Zm10-4v14" />
+    ),
+  },
+  {
     label: "Date",
     value: EVENT.dateLabel,
     icon: (

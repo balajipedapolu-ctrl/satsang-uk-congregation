@@ -55,6 +55,10 @@ export default function Hero() {
               View Schedule
             </Link>
           </div>
+
+          <p className="mt-6 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-1.5 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-200">
+            🎟️ Free entry — everyone is warmly welcome
+          </p>
         </div>
 
         {/* Countdown */}
