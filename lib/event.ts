@@ -31,6 +31,12 @@ export const CONTACT = {
   phone2: "+44 7730 416678",
 } as const;
 
+// A teaching of Sree Sree Thakur Anukulchandra, shown as a quote band.
+export const THAKUR_QUOTE = {
+  text: "Existence with attachment to the ideal is the be-all and end-all of life.",
+  author: "Sree Sree Thakur Anukulchandra",
+} as const;
+
 // Secure online payment link (SumUp) and the matching QR code in /public.
 export const DONATION_URL = "https://pay.sumup.com/b2c/QZ9MBBX7";
 export const DONATION_QR = "/donate-qr.png";

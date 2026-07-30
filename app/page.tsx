@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import QuoteBand from "@/components/QuoteBand";
 import NHSHighlight from "@/components/NHSHighlight";
 import About from "@/components/About";
 import EventDetails from "@/components/EventDetails";
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <QuoteBand />
       <NHSHighlight />
       <About />
       <EventDetails />
