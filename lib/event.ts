@@ -71,7 +71,7 @@ export const SCHEDULE: ScheduleItem[] = [
     start: "18:00",
     end: "19:00",
     title: "Musical Performance by BEATIFICUS",
-    note: "Satsang Europe's musical brand",
+    note: "Satsang Europe's musical band",
   },
   { start: "19:00", end: "20:30", title: "Dinner Prasad" },
 ];
