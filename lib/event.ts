@@ -10,7 +10,7 @@ export const EVENT = {
   // Name without the edition prefix (the big "19th" is shown separately).
   name: "Satsang UK National Congregation",
   occasion:
-    "Celebrating the 139th Birth Anniversary of Sree Sree Thakur Anukulchandra",
+    "Celebrating the 139th Holy Birth Anniversary of Sree Sree Thakur Anukulchandra",
   // ISO date-time in UK time. Used by the countdown timer.
   startsAtISO: "2026-09-26T07:00:00+01:00",
   dateLabel: "Saturday, 26th September 2026",
