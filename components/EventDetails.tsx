@@ -37,7 +37,7 @@ const facts = [
     ),
   },
   {
-    label: "Dress code",
+    label: "Modest Dress",
     value: EVENT.dressCode,
     icon: (
       <path d="M12 3l3 3 5 2-3 3v10H7V11L4 8l5-2 3-3Zm0 0v3" />
