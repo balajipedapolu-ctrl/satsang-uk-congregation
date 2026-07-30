@@ -21,7 +21,7 @@ export const EVENT = {
     postcode: "SM3 8AB",
     mapsQuery: "Nonsuch High School for Girls, Ewell Road, Cheam, Sutton, SM3 8AB",
   },
-  dressCode: "Any decent dress is welcome.",
+  dressCode: "Modest dress is welcome.",
   organisation: "Satsang UK",
 } as const;
 
