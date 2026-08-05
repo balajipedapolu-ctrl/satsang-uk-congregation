@@ -82,6 +82,27 @@ export const SCHEDULE: ScheduleItem[] = [
   { start: "19:00", end: "20:30", title: "Dinner Prasad" },
 ];
 
+export type Publication = {
+  title: string;
+  author: string;
+  compiler: string;
+  description: string[];
+  availability: string;
+};
+
+export const PUBLICATIONS: Publication[] = [
+  {
+    title: "Beacon of Being and Becoming",
+    author: "Dr. Anindyadyuti Chakravarty",
+    compiler: "Rev. Binki Da",
+    description: [
+      "Rev. Binki Da, the youngest brother of Acharyadev of Satsang, has summarised Sree Sree Thakur's philosophy of Being and Becoming in this small and handy book.",
+      "This book contains Sree Sree Thakur's short biography, his social welfare activities, and the need for a living ideal in an individual's life — a good introductory direction for anyone interested to know about Sree Sree Thakur's life and philosophy.",
+    ],
+    availability: "Also available at all the physical Satsang events in the UK.",
+  },
+];
+
 export const SEVA_OPTIONS = [
   "Registration & Welcome Desk",
   "Prasad / Food Service",
@@ -90,6 +111,8 @@ export const SEVA_OPTIONS = [
   "Set-up & Clean-up",
   "First Aid",
   "Photography / Media",
+  "Stage Decoration",
+  "NHS Team Support",
 ] as const;
 
 // Primary navigation. Section links point to the landing page anchors so they
@@ -100,5 +123,6 @@ export const NAV_LINKS = [
   { label: "Schedule", href: "/#schedule" },
   { label: "Travel", href: "/#travel" },
   { label: "Gallery", href: "/#gallery" },
+  { label: "Publications", href: "/publications" },
   { label: "Contact", href: "/#contact" },
 ] as const;
