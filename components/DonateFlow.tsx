@@ -33,13 +33,7 @@ const initialState: FormState = {
   confirmedPaid: false,
 };
 
-const METHODS = [
-  "SumUp (card / online)",
-  "QR code scan",
-  "Bank transfer",
-  "Cash",
-  "Other",
-];
+const METHODS = ["SumUp (card / online)", "QR code scan"];
 
 function localReference() {
   return `DON19-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
@@ -303,7 +297,7 @@ export default function DonateFlow() {
                   />
                 </div>
               </div>
-            ) : form.method === "SumUp (card / online)" ? (
+            ) : (
               /* Online / card via SumUp gateway */
               <div className="card flex flex-col items-center text-center">
                 <span className="text-4xl">💳</span>
@@ -323,25 +317,6 @@ export default function DonateFlow() {
                 </a>
                 <p className="mt-3 text-xs text-ink/50">
                   Opens SumUp&rsquo;s secure payment page in a new tab.
-                </p>
-              </div>
-            ) : (
-              /* Offline methods: bank transfer / cash / other */
-              <div className="card flex flex-col items-center text-center">
-                <span className="text-4xl">
-                  {form.method === "Cash" ? "💷" : "🏦"}
-                </span>
-                <h3 className="mt-3 font-serif text-xl font-bold text-maroon-900">
-                  {form.method}
-                </h3>
-                <p className="mt-2 text-sm text-ink/70">
-                  Please complete your {form.method.toLowerCase()} of{" "}
-                  <span className="font-semibold text-maroon-800">
-                    £{form.amount || "—"}
-                  </span>
-                  . If you&rsquo;d prefer to pay by card instead, you can go back
-                  and choose &ldquo;SumUp (card / online)&rdquo; or
-                  &ldquo;QR code scan&rdquo;.
                 </p>
               </div>
             )}
@@ -379,7 +354,7 @@ export default function DonateFlow() {
               />
               <span className="text-sm text-ink/80">
                 I confirm I have completed my payment of £{form.amount || "—"}{" "}
-                (via the SumUp button, QR code or another method).{" "}
+                (via the SumUp button or QR code).{" "}
                 <span className="text-maroon-500">*</span>
               </span>
             </label>
