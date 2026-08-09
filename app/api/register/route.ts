@@ -44,6 +44,7 @@ export async function POST(request: Request) {
             location: String(body?.location ?? ""),
             postcode: String(body?.postcode ?? ""),
             attendees: body?.attendees ?? "",
+            travelMode: String(body?.travelMode ?? ""),
             wantsToVolunteer: Boolean(body?.wantsToVolunteer),
             seva: Array.isArray(body?.seva) ? body.seva : [],
             bloodDonorInterest: Boolean(body?.bloodDonorInterest),

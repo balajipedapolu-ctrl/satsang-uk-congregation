@@ -12,6 +12,7 @@ type FormState = {
   location: string;
   postcode: string;
   attendees: string;
+  travelMode: string;
   wantsToVolunteer: boolean;
   seva: string[];
   bloodDonorInterest: boolean;
@@ -32,10 +33,13 @@ const initialState: FormState = {
   location: "",
   postcode: "",
   attendees: "",
+  travelMode: "",
   wantsToVolunteer: false,
   seva: [],
   bloodDonorInterest: false,
 };
+
+const TRAVEL_OPTIONS = ["Own Car", "Public Transport"];
 
 // Client-side fallback reference generator (used if the API is unavailable).
 function localReference() {
@@ -267,6 +271,25 @@ export default function RegistrationForm() {
             className="field-input"
             placeholder="e.g. 2"
           />
+        </div>
+
+        <div className="sm:col-span-2">
+          <label htmlFor="travelMode" className="field-label">
+            Are you travelling by?
+          </label>
+          <select
+            id="travelMode"
+            value={form.travelMode}
+            onChange={(e) => setForm({ ...form, travelMode: e.target.value })}
+            className="field-input"
+          >
+            <option value="">Select an option</option>
+            {TRAVEL_OPTIONS.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 

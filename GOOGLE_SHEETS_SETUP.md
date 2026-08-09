@@ -56,7 +56,7 @@ function doPost(e) {
       if (sheet.getLastRow() === 0) {
         sheet.appendRow([
           'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
-          'Location', 'Postcode', 'Attendees', 'Volunteer', 'Seva', 'Blood Donor'
+          'Location', 'Postcode', 'Attendees', 'Travel Mode', 'Volunteer', 'Seva', 'Blood Donor'
         ]);
       }
       sheet.appendRow([
@@ -68,6 +68,7 @@ function doPost(e) {
         d.location || '',
         d.postcode || '',
         d.attendees || '',
+        d.travelMode || '',
         d.wantsToVolunteer ? 'Yes' : 'No',
         (d.seva || []).join(', '),
         d.bloodDonorInterest ? 'Yes' : 'No'
