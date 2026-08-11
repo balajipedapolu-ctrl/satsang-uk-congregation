@@ -23,6 +23,13 @@ function doPost(e) {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var d = JSON.parse(e.postData.contents);
 
+    // A leading "+" (e.g. "+44 7911123456") makes Sheets try to read the
+    // value as a formula/number and show an error. Prefixing with an
+    // apostrophe forces it to be stored as plain text.
+    function phoneText(v) {
+      return v ? "'" + v : '';
+    }
+
     if (d.type === 'message') {
       // Contact-form messages go to their own "Messages" tab
       var msg = ss.getSheetByName('Messages') || ss.insertSheet('Messages');
@@ -44,7 +51,7 @@ function doPost(e) {
         d.reference || '',
         d.name || '',
         d.email || '',
-        d.phone || '',
+        phoneText(d.phone),
         d.amount || '',
         d.method || '',
         d.receipt || '',
@@ -64,7 +71,7 @@ function doPost(e) {
         d.reference || '',
         d.name || '',
         d.email || '',
-        d.phone || '',
+        phoneText(d.phone),
         d.location || '',
         d.postcode || '',
         d.attendees || '',
