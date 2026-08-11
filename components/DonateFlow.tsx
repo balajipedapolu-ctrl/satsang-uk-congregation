@@ -201,7 +201,7 @@ export default function DonateFlow() {
               value={form.amount}
               onChange={(e) => setForm({ ...form, amount: e.target.value })}
               className="field-input"
-              placeholder="e.g. 50"
+              placeholder="e.g. 10"
               disabled={phase === "pay"}
             />
           </div>
