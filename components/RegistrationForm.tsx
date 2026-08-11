@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
+import PhoneField from "@/components/PhoneField";
 import { EVENT, SEVA_OPTIONS } from "@/lib/event";
 
 type FormState = {
@@ -51,6 +52,7 @@ export default function RegistrationForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<Confirmation | null>(null);
+  const [formKey, setFormKey] = useState(0);
 
   function toggleSeva(option: string) {
     setForm((f) => ({
@@ -155,6 +157,7 @@ export default function RegistrationForm() {
             onClick={() => {
               setResult(null);
               setForm(initialState);
+              setFormKey((k) => k + 1);
             }}
             className="btn-secondary"
           >
@@ -211,20 +214,14 @@ export default function RegistrationForm() {
           />
         </div>
 
-        <div>
-          <label htmlFor="phone" className="field-label">
-            Contact number <span className="text-maroon-500">*</span>
-          </label>
-          <input
-            id="phone"
-            type="tel"
-            required
-            value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            className="field-input"
-            placeholder="+44 …"
-          />
-        </div>
+        <PhoneField
+          key={formKey}
+          id="phone"
+          label="Contact number"
+          required
+          value={form.phone}
+          onChange={(phone) => setForm({ ...form, phone })}
+        />
 
         <div>
           <label htmlFor="location" className="field-label">

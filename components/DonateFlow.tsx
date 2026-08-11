@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PhoneField from "@/components/PhoneField";
 import { DONATION_URL, DONATION_QR } from "@/lib/event";
 
 type FormState = {
@@ -52,6 +53,7 @@ export default function DonateFlow() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<Confirmation | null>(null);
+  const [formKey, setFormKey] = useState(0);
 
   function handleContinue(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -124,6 +126,7 @@ export default function DonateFlow() {
               setResult(null);
               setForm(initialState);
               setPhase("details");
+              setFormKey((k) => k + 1);
             }}
             className="btn-secondary"
           >
@@ -176,20 +179,14 @@ export default function DonateFlow() {
             />
           </div>
 
-          <div>
-            <label htmlFor="d-phone" className="field-label">
-              Contact number
-            </label>
-            <input
-              id="d-phone"
-              type="tel"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="field-input"
-              placeholder="+44 …"
-              disabled={phase === "pay"}
-            />
-          </div>
+          <PhoneField
+            key={formKey}
+            id="d-phone"
+            label="Contact number"
+            disabled={phase === "pay"}
+            value={form.phone}
+            onChange={(phone) => setForm({ ...form, phone })}
+          />
 
           <div>
             <label htmlFor="d-amount" className="field-label">
