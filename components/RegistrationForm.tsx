@@ -17,7 +17,6 @@ type FormState = {
   wantsToVolunteer: boolean;
   seva: string[];
   bloodDonorInterest: boolean;
-  whatsappInterest: boolean;
 };
 
 type Confirmation = {
@@ -26,7 +25,6 @@ type Confirmation = {
   attendees: string;
   seva: string[];
   bloodDonorInterest: boolean;
-  whatsappInterest: boolean;
 };
 
 const initialState: FormState = {
@@ -40,7 +38,6 @@ const initialState: FormState = {
   wantsToVolunteer: false,
   seva: [],
   bloodDonorInterest: false,
-  whatsappInterest: false,
 };
 
 const TRAVEL_OPTIONS = ["Own Car", "Public Transport"];
@@ -91,7 +88,6 @@ export default function RegistrationForm() {
       attendees: form.attendees,
       seva: form.wantsToVolunteer ? form.seva : [],
       bloodDonorInterest: form.bloodDonorInterest,
-      whatsappInterest: form.whatsappInterest,
     });
     setSubmitting(false);
   }
@@ -152,25 +148,6 @@ export default function RegistrationForm() {
               The NHS team will be at the event to help you register and find out
               your blood type.
             </p>
-          </div>
-        ) : null}
-
-        {result.whatsappInterest ? (
-          <div className="mt-6 flex items-start gap-3 rounded-2xl border-2 border-[#25D366]/30 bg-[#25D366]/10 p-5 text-left">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.36A10 10 0 1 0 12 2Zm0 18.2a8.16 8.16 0 0 1-4.17-1.14l-.3-.18-3.1.84.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.24-.12-1.45-.72-1.67-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.96-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
-              </svg>
-            </span>
-            <div>
-              <p className="font-serif text-lg font-semibold text-[#1a7a45]">
-                Thanks for joining the WhatsApp group!
-              </p>
-              <p className="mt-1 text-sm text-ink/75">
-                We&rsquo;ll add you using the mobile number you shared, so keep
-                an eye out for the invite closer to the day.
-              </p>
-            </div>
           </div>
         ) : null}
 
@@ -377,34 +354,6 @@ export default function RegistrationForm() {
           </span>
         </label>
       </div>
-
-      {/* WhatsApp group interest */}
-      <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-[#25D366]/30 bg-[#25D366]/10 p-4">
-        <input
-          type="checkbox"
-          checked={form.whatsappInterest}
-          onChange={(e) =>
-            setForm({ ...form, whatsappInterest: e.target.checked })
-          }
-          className="mt-1 h-4 w-4 accent-[#25D366]"
-        />
-        <span className="flex items-start gap-3">
-          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-              <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.36A10 10 0 1 0 12 2Zm0 18.2a8.16 8.16 0 0 1-4.17-1.14l-.3-.18-3.1.84.83-3.02-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.24-.12-1.45-.72-1.67-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.96-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
-            </svg>
-          </span>
-          <span>
-            <span className="font-medium text-maroon-900">
-              I&rsquo;d like to join the event WhatsApp group
-            </span>
-            <span className="mt-0.5 block text-sm text-ink/60">
-              Get reminders, updates and connect with fellow attendees.
-              We&rsquo;ll add you using the mobile number above.
-            </span>
-          </span>
-        </span>
-      </label>
 
       <button
         type="submit"
