@@ -63,7 +63,7 @@ function doPost(e) {
       if (sheet.getLastRow() === 0) {
         sheet.appendRow([
           'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
-          'Location', 'Postcode', 'Attendees', 'Travel Mode', 'Volunteer', 'Seva', 'Blood Donor'
+          'Location', 'Postcode', 'Attendees', 'Travel Mode', 'Volunteer', 'Seva', 'Blood Donor', 'WhatsApp Group'
         ]);
       }
       sheet.appendRow([
@@ -78,7 +78,8 @@ function doPost(e) {
         d.travelMode || '',
         d.wantsToVolunteer ? 'Yes' : 'No',
         (d.seva || []).join(', '),
-        d.bloodDonorInterest ? 'Yes' : 'No'
+        d.bloodDonorInterest ? 'Yes' : 'No',
+        d.whatsappInterest ? 'Yes' : 'No'
       ]);
     }
 

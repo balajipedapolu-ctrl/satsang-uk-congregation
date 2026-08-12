@@ -48,6 +48,7 @@ export async function POST(request: Request) {
             wantsToVolunteer: Boolean(body?.wantsToVolunteer),
             seva: Array.isArray(body?.seva) ? body.seva : [],
             bloodDonorInterest: Boolean(body?.bloodDonorInterest),
+            whatsappInterest: Boolean(body?.whatsappInterest),
           }),
         });
       } catch (err) {
