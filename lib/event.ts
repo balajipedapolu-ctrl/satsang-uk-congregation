@@ -41,6 +41,30 @@ export const THAKUR_QUOTE = {
 export const DONATION_URL = "https://pay.sumup.com/b2c/QZ9MBBX7";
 export const DONATION_QR = "/donate-qr.png";
 
+export type Guest = {
+  name: string;
+  role: string;
+  badge: string;
+  photo?: string;
+};
+
+// Confirmed special guests for this year's congregation. Add more entries
+// here as further confirmations come in — no other changes needed.
+export const GUESTS: Guest[] = [
+  {
+    name: "Luke Taylor MP",
+    role: "Member of Parliament for Sutton and Cheam",
+    badge: "Chief Guest",
+    photo: "/guest-luke-taylor.jpg",
+  },
+  {
+    name: "Razia Sattar",
+    role: "Head of Partnerships, Impact and Equalities, Community Action Sutton",
+    badge: "Symposium Speaker",
+    photo: "/guest-razia-sattar.jpg",
+  },
+];
+
 export type ScheduleItem = {
   start: string;
   end: string;
