@@ -65,6 +65,26 @@ export const GUESTS: Guest[] = [
   },
 ];
 
+export type CommunityPartner = {
+  name: string;
+  icon: string;
+  summary: string;
+  details: string;
+};
+
+// Community organisations collaborating with this year's congregation. Add
+// more entries here as further partnerships are confirmed — no other
+// changes needed.
+export const COMMUNITY_PARTNERS: CommunityPartner[] = [
+  {
+    name: "Sutton Tree Wardens",
+    icon: "🌳",
+    summary: "A voluntary tree-plantation organisation",
+    details:
+      "Tree plantation has long been close to the heart of Pujyapad Acharyadev — from the tree-plantation campaign held in his honour on Reverend Abinda's last birthday, to the ongoing work of Satsang volunteers today. This year we're delighted to welcome the Sutton Tree Wardens to our Utsav. They'll be sharing leaflets and information about their work and upcoming projects, and Satsang volunteers are warmly invited to visit their table on the day to learn more and enrol in tree-plantation activities.",
+  },
+];
+
 export type ScheduleItem = {
   start: string;
   end: string;

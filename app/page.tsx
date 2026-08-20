@@ -4,6 +4,7 @@ import NHSHighlight from "@/components/NHSHighlight";
 import About from "@/components/About";
 import AboutThakur from "@/components/AboutThakur";
 import SpecialGuests from "@/components/SpecialGuests";
+import CommunityEngagement from "@/components/CommunityEngagement";
 import EventDetails from "@/components/EventDetails";
 import Schedule from "@/components/Schedule";
 import Travel from "@/components/Travel";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <About />
       <AboutThakur />
       <SpecialGuests />
+      <CommunityEngagement />
       <EventDetails />
       <Schedule />
       <Travel />
