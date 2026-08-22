@@ -1,6 +1,6 @@
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
-import { CONTACT } from "@/lib/event";
+import { CONTACT, SUTTON_HUB_LISTING_URL } from "@/lib/event";
 
 const channels = [
   {
@@ -21,6 +21,18 @@ const channels = [
     href: `tel:${CONTACT.phone2.replace(/\s+/g, "")}`,
     icon: <path d="M4 5a1 1 0 0 1 1-1h3l2 5-2 1a11 11 0 0 0 5 5l1-2 5 2v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5Z" />,
   },
+  {
+    label: "Official Listing",
+    value: "View us on Sutton Information Hub",
+    href: SUTTON_HUB_LISTING_URL,
+    external: true,
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3c2.5 2.5 3.5 6 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-6-3.5-9s1-6.5 3.5-9Z" />
+      </>
+    ),
+  },
 ];
 
 export default function Contact() {
@@ -39,6 +51,8 @@ export default function Contact() {
               <a
                 key={c.value}
                 href={c.href}
+                target={c.external ? "_blank" : undefined}
+                rel={c.external ? "noopener noreferrer" : undefined}
                 className="card flex items-center gap-4 transition hover:-translate-y-0.5 hover:shadow-soft"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-saffron-100 text-saffron-700">

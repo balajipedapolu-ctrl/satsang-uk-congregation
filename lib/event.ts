@@ -31,6 +31,11 @@ export const CONTACT = {
   phone2: "+44 7730 416678",
 } as const;
 
+// Official public listing of this event on Sutton's community/voluntary
+// sector directory — shown as a credibility link in Contact.
+export const SUTTON_HUB_LISTING_URL =
+  "https://suttoninformationhub.org.uk/events/satsang-uk-utsav-2026";
+
 // A teaching of Sree Sree Thakur Anukulchandra, shown as a quote band.
 export const THAKUR_QUOTE = {
   text: "Existence with attachment to the ideal is the be-all and end-all of life.",
