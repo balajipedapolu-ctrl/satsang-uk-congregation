@@ -110,7 +110,12 @@ export const SCHEDULE: ScheduleItem[] = [
     title: "Breakfast Break",
     note: "Sangeetanjali in parallel",
   },
-  { start: "10:00", end: "11:00", title: "Welcome to NHS & VCF team" },
+  {
+    start: "10:00",
+    end: "11:00",
+    title: "Welcome to Distinguished Guests & Community Partners",
+    note: "MP, NHS team, Sutton Tree Wardens and other local community groups",
+  },
   {
     start: "11:00",
     end: "13:00",
