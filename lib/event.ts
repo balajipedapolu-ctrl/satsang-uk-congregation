@@ -112,17 +112,17 @@ export const SCHEDULE: ScheduleItem[] = [
   },
   {
     start: "10:00",
-    end: "11:00",
+    end: "10:15",
     title: "Welcome to Distinguished Guests & Community Partners",
     note: "MP, NHS team, Sutton Tree Wardens and other local community groups",
   },
   {
-    start: "11:00",
-    end: "13:00",
+    start: "10:15",
+    end: "12:15",
     title:
       "Symposium — Being and Becoming: Sree Sree Thakur Anukulchandra's Philosophy of Human Excellence and Sustainable Living",
   },
-  { start: "13:00", end: "14:00", title: "Lunch Prasad Break" },
+  { start: "12:30", end: "14:00", title: "Lunch Prasad Break" },
   { start: "14:00", end: "15:00", title: "Matrisammelani" },
   { start: "15:00", end: "16:00", title: "Kids' & Cultural Programme" },
   { start: "16:00", end: "16:30", title: "Afternoon Tea Break" },
