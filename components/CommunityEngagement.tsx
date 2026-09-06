@@ -40,6 +40,16 @@ export default function CommunityEngagement() {
                 <p className="mt-3 text-sm leading-relaxed text-ink/75">
                   {partner.details}
                 </p>
+                {partner.url ? (
+                  <a
+                    href={partner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block text-sm font-semibold text-emerald-700 underline"
+                  >
+                    Learn more &rarr;
+                  </a>
+                ) : null}
               </div>
             </div>
           ))}

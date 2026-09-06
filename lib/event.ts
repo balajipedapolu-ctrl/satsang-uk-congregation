@@ -75,6 +75,7 @@ export type CommunityPartner = {
   icon: string;
   summary: string;
   details: string;
+  url?: string;
 };
 
 // Community organisations collaborating with this year's congregation. Add
@@ -87,6 +88,30 @@ export const COMMUNITY_PARTNERS: CommunityPartner[] = [
     summary: "A voluntary tree-plantation organisation",
     details:
       "Tree plantation has long been close to the heart of Pujyapad Acharyadev — from the tree-plantation campaign held in his honour on Reverend Abinda's last birthday, to the ongoing work of Satsang volunteers today. This year we're delighted to welcome the Sutton Tree Wardens to our Utsav. They'll be sharing leaflets and information about their work and upcoming projects, and Satsang volunteers are warmly invited to visit their table on the day to learn more and enrol in tree-plantation activities.",
+  },
+  {
+    name: "Sutton Primary Care Networks",
+    icon: "🏥",
+    summary: "Coordinating primary healthcare across Sutton's GP surgeries",
+    details:
+      "Sutton Primary Care Networks bring together all 21 GP surgeries across the borough to improve health and wellbeing for local residents. We're pleased to welcome them to the Utsav to share information about the primary care services available to our community and how residents can access support closer to home.",
+    url: "https://www.suttonpcns.co.uk/",
+  },
+  {
+    name: "Sutton Night Watch",
+    icon: "🌙",
+    summary: "Supporting homeless and vulnerable residents in Sutton",
+    details:
+      "Sutton Night Watch provides food, shelter essentials and wraparound support to homeless and vulnerable people across the borough, helping them find stability and hope for the future. In the spirit of seva and selfless service, we're honoured to have them join our Utsav to raise awareness of their work and how our community can help.",
+    url: "https://suttonnightwatch.com/",
+  },
+  {
+    name: "People Arise Now",
+    icon: "🙌",
+    summary: "Advocacy and support for disadvantaged families and youth",
+    details:
+      "People Arise Now supports individuals and families facing disadvantage across Sutton, offering advocacy, youth programmes, skills training and community activities that build confidence and connection. Their presence at the Utsav reflects our shared commitment to uplifting and empowering our wider community.",
+    url: "https://www.peoplearisenow.org/",
   },
 ];
 
