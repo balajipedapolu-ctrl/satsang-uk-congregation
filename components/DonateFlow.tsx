@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PhoneField from "@/components/PhoneField";
@@ -54,25 +54,30 @@ export default function DonateFlow() {
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<Confirmation | null>(null);
   const [formKey, setFormKey] = useState(0);
+  const startedSentRef = useRef(false);
 
   async function handleContinue(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitting(true);
 
-    // Record the donor's details now, before they even reach the payment
-    // page — so we have a record of their intent even if they never
-    // complete payment.
-    try {
-      await fetch("/api/donate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, stage: "started" }),
-      });
-    } catch {
-      // Don't block the donor if the sheet is unreachable.
+    // Record the donor's details once per donation attempt, before they even
+    // reach the payment page — so we have a record of their intent even if
+    // they never complete payment. Going back via "Edit my details" and
+    // continuing again shouldn't create a duplicate row.
+    if (!startedSentRef.current) {
+      setSubmitting(true);
+      try {
+        await fetch("/api/donate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...form, stage: "started" }),
+        });
+        startedSentRef.current = true;
+      } catch {
+        // Don't block the donor if the sheet is unreachable.
+      }
+      setSubmitting(false);
     }
 
-    setSubmitting(false);
     setPhase("pay");
     // Bring the payment section into view.
     setTimeout(() => {
@@ -143,6 +148,7 @@ export default function DonateFlow() {
               setForm(initialState);
               setPhase("details");
               setFormKey((k) => k + 1);
+              startedSentRef.current = false;
             }}
             className="btn-secondary"
           >
