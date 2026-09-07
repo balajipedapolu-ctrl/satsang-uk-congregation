@@ -43,7 +43,7 @@ function doPost(e) {
       if (don.getLastRow() === 0) {
         don.appendRow([
           'Timestamp', 'Reference', 'Name', 'Email', 'Phone',
-          'Amount (£)', 'Method', 'SumUp Ref', 'Message'
+          'Amount (£)', 'Method', 'SumUp Ref', 'Message', 'Stage'
         ]);
       }
       don.appendRow([
@@ -55,7 +55,8 @@ function doPost(e) {
         d.amount || '',
         d.method || '',
         d.receipt || '',
-        d.message || ''
+        d.message || '',
+        d.stage || 'confirmed'
       ]);
     } else {
       // Registrations go to the first sheet
@@ -97,6 +98,14 @@ function doPost(e) {
 > version above, then **Deploy → Manage deployments → edit ✏️ → Version: New
 > version → Deploy**. The webhook URL stays the same, and donations will start
 > landing on a new **"Donations"** tab automatically.
+
+> **About the "Stage" column:** a donor's details are saved as soon as they
+> finish Step 1 (**Stage = "started"**), before they even reach the payment
+> page — so you have a record of their intent even if they never pay. If they
+> go on to confirm payment in Step 2, a **second row** is added with
+> **Stage = "confirmed"** (and their SumUp receipt number, if given). Treat
+> "confirmed" rows as real donations; "started" rows are just interest you can
+> follow up on.
 
 3. Click the **Save** icon (💾).
 

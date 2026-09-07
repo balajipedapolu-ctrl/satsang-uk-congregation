@@ -47,6 +47,7 @@ export async function POST(request: Request) {
             method: String(body?.method ?? ""),
             receipt: String(body?.receipt ?? ""),
             message: String(body?.message ?? ""),
+            stage: String(body?.stage ?? "confirmed"),
           }),
         });
       } catch (err) {

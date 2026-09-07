@@ -55,8 +55,24 @@ export default function DonateFlow() {
   const [result, setResult] = useState<Confirmation | null>(null);
   const [formKey, setFormKey] = useState(0);
 
-  function handleContinue(e: React.FormEvent<HTMLFormElement>) {
+  async function handleContinue(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSubmitting(true);
+
+    // Record the donor's details now, before they even reach the payment
+    // page — so we have a record of their intent even if they never
+    // complete payment.
+    try {
+      await fetch("/api/donate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, stage: "started" }),
+      });
+    } catch {
+      // Don't block the donor if the sheet is unreachable.
+    }
+
+    setSubmitting(false);
     setPhase("pay");
     // Bring the payment section into view.
     setTimeout(() => {
@@ -242,8 +258,12 @@ export default function DonateFlow() {
         </div>
 
         {phase === "details" ? (
-          <button type="submit" className="btn-primary w-full text-base">
-            Continue to payment →
+          <button
+            type="submit"
+            disabled={submitting}
+            className="btn-primary w-full text-base disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {submitting ? "Saving your details…" : "Continue to payment →"}
           </button>
         ) : (
           <button
@@ -365,8 +385,8 @@ export default function DonateFlow() {
             </button>
 
             <p className="text-center text-xs text-ink/50">
-              Your record is saved only after you confirm payment. Payment is
-              processed securely by SumUp.
+              We&rsquo;ve already noted your details — this step confirms your
+              payment is complete. Payment is processed securely by SumUp.
             </p>
           </form>
         </div>
