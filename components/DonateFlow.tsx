@@ -13,14 +13,6 @@ type FormState = {
   amount: string;
   method: string;
   message: string;
-  receipt: string;
-  confirmedPaid: boolean;
-};
-
-type Confirmation = {
-  reference: string;
-  name: string;
-  amount: string;
 };
 
 const initialState: FormState = {
@@ -30,29 +22,23 @@ const initialState: FormState = {
   amount: "",
   method: "SumUp (card / online)",
   message: "",
-  receipt: "",
-  confirmedPaid: false,
 };
 
 const METHODS = ["SumUp (card / online)", "QR code scan"];
 
-function localReference() {
-  return `DON19-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
-}
-
 /**
  * Two-layer donation flow.
  *
- * Layer 1 — the donor fills in their details (name, amount, contact…).
- * Layer 2 — only then does the payment gate (SumUp button + QR code) appear,
- *           where they pay and confirm. Nothing is saved until they confirm
- *           payment, so we don't record donations that were never paid.
+ * Layer 1 — the donor fills in their details (name, amount, contact…), which
+ *           is saved immediately so we have a record even if payment isn't
+ *           completed.
+ * Layer 2 — the payment gate (SumUp button + QR code) then appears for them
+ *           to complete their donation.
  */
 export default function DonateFlow() {
   const [phase, setPhase] = useState<"details" | "pay">("details");
   const [form, setForm] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
-  const [result, setResult] = useState<Confirmation | null>(null);
   const [formKey, setFormKey] = useState(0);
   const startedSentRef = useRef(false);
 
@@ -85,81 +71,6 @@ export default function DonateFlow() {
         .getElementById("payment-gate")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 50);
-  }
-
-  async function handleRecord(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitting(true);
-
-    let reference = localReference();
-    try {
-      const res = await fetch("/api/donate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        const data = await res.json();
-        if (data?.reference) reference = data.reference;
-      }
-    } catch {
-      // Keep the local reference if the API is unreachable.
-    }
-
-    setResult({ reference, name: form.name, amount: form.amount });
-    setSubmitting(false);
-  }
-
-  /* ---------- Thank-you ---------- */
-  if (result) {
-    return (
-      <div className="card mx-auto max-w-xl text-center">
-        <span className="text-5xl">🙏</span>
-        <h2 className="mt-4 font-serif text-2xl font-bold text-maroon-900">
-          Thank you for your contribution!
-        </h2>
-        <p className="mt-2 text-ink/70">
-          We&rsquo;ve recorded your donation,{" "}
-          {result.name.split(" ")[0] || "friend"}. Your generosity helps make the
-          congregation possible.
-        </p>
-
-        <div className="mt-6 rounded-2xl bg-cream p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-saffron-700">
-            Your reference number
-          </p>
-          <p className="mt-1 font-mono text-2xl font-bold tracking-wider text-maroon-900">
-            {result.reference}
-          </p>
-          <p className="mt-3 text-sm text-ink/60">
-            Please keep this reference for your records. Your donation of{" "}
-            <span className="font-semibold text-maroon-800">
-              £{result.amount}
-            </span>{" "}
-            has been noted.
-          </p>
-        </div>
-
-        <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-          <button
-            type="button"
-            onClick={() => {
-              setResult(null);
-              setForm(initialState);
-              setPhase("details");
-              setFormKey((k) => k + 1);
-              startedSentRef.current = false;
-            }}
-            className="btn-secondary"
-          >
-            Make another donation
-          </button>
-          <Link href="/" className="btn-primary">
-            Back to home
-          </Link>
-        </div>
-      </div>
-    );
   }
 
   return (
@@ -342,55 +253,19 @@ export default function DonateFlow() {
             )}
           </div>
 
-          {/* Confirm payment + record */}
-          <form onSubmit={handleRecord} className="card mt-8 space-y-5">
-            <div>
-              <label htmlFor="d-receipt" className="field-label">
-                SumUp receipt / transaction number
-              </label>
-              <input
-                id="d-receipt"
-                value={form.receipt}
-                onChange={(e) => setForm({ ...form, receipt: e.target.value })}
-                className="field-input"
-                placeholder="From your SumUp receipt (helps us match your payment)"
-              />
-              <p className="mt-1 text-xs text-ink/50">
-                Optional but very helpful — it lets us match your gift to the
-                payment. You&rsquo;ll find it on the SumUp confirmation screen or
-                receipt email.
-              </p>
-            </div>
-
-            <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-saffron-100 bg-cream/60 p-4">
-              <input
-                type="checkbox"
-                required
-                checked={form.confirmedPaid}
-                onChange={(e) =>
-                  setForm({ ...form, confirmedPaid: e.target.checked })
-                }
-                className="mt-1 h-4 w-4 accent-saffron-600"
-              />
-              <span className="text-sm text-ink/80">
-                I confirm I have completed my payment of £{form.amount || "—"}{" "}
-                (via the SumUp button or QR code).{" "}
-                <span className="text-maroon-500">*</span>
-              </span>
-            </label>
-
-            <button
-              type="submit"
-              disabled={submitting || !form.confirmedPaid}
-              className="btn-primary w-full text-base disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {submitting ? "Saving…" : "Record my donation"}
-            </button>
-
-            <p className="text-center text-xs text-ink/50">
-              Payment is processed securely by SumUp.
+          <div className="mx-auto mt-8 max-w-md rounded-2xl bg-cream p-6 text-center">
+            <span className="text-3xl">🙏</span>
+            <p className="mt-2 font-serif text-lg font-semibold text-maroon-900">
+              Thank you for your generosity
             </p>
-          </form>
+            <p className="mt-1 text-sm text-ink/70">
+              Your details have already been saved — there&rsquo;s nothing
+              more you need to do here once your payment is complete.
+            </p>
+            <Link href="/" className="btn-primary mt-5 inline-block">
+              Back to home
+            </Link>
+          </div>
         </div>
       ) : null}
     </div>
