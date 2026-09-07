@@ -271,15 +271,7 @@ export default function DonateFlow() {
           >
             {submitting ? "Saving your details…" : "Continue to payment →"}
           </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setPhase("details")}
-            className="text-sm font-medium text-saffron-700 hover:underline"
-          >
-            ← Edit my details
-          </button>
-        )}
+        ) : null}
       </form>
 
       {/* ---------- Layer 2: payment gate (revealed after step 1) ---------- */}
@@ -288,6 +280,11 @@ export default function DonateFlow() {
           <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.18em] text-saffron-700">
             Step 2 · Make your payment
           </p>
+
+          <div className="mb-6 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center text-sm text-emerald-800">
+            ✅ Your details have been saved to our records. Now please
+            complete your payment below via SumUp.
+          </div>
 
           <div className="mb-8 rounded-2xl border-2 border-saffron-200 bg-saffron-50 p-5 text-center">
             <p className="text-ink/80">
@@ -391,8 +388,7 @@ export default function DonateFlow() {
             </button>
 
             <p className="text-center text-xs text-ink/50">
-              We&rsquo;ve already noted your details — this step confirms your
-              payment is complete. Payment is processed securely by SumUp.
+              Payment is processed securely by SumUp.
             </p>
           </form>
         </div>
