@@ -113,6 +113,14 @@ export const COMMUNITY_PARTNERS: CommunityPartner[] = [
       "People Arise Now supports individuals and families facing disadvantage across Sutton, offering advocacy, youth programmes, skills training and community activities that build confidence and connection. Their presence at the Utsav reflects our shared commitment to uplifting and empowering our wider community.",
     url: "https://www.peoplearisenow.org/",
   },
+  {
+    name: "Belmont House Care Home",
+    icon: "🏡",
+    summary: "Residential, dementia and nursing care in Sutton",
+    details:
+      "Belmont House, run by Care UK, provides residential, dementia, nursing and respite care for older adults in Sutton. We're glad to welcome them to the Utsav to connect with our community and share how their residents and families can benefit from the friendship and support of local groups like ours.",
+    url: "https://www.careuk.com/care-homes/belmont-house-sutton",
+  },
 ];
 
 export type ScheduleItem = {
