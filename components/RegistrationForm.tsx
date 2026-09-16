@@ -247,7 +247,7 @@ export default function RegistrationForm() {
             value={form.postcode}
             onChange={(e) => setForm({ ...form, postcode: e.target.value })}
             className="field-input"
-            placeholder="e.g. SM3 8AB"
+            placeholder="e.g. CR8 3YP"
           />
         </div>
 

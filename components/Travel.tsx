@@ -6,8 +6,8 @@ const options = [
     title: "By Rail",
     icon: <path d="M4 15V5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3Zm0-5h16M8 6h8M7.5 21 6 18m10.5 3L18 18M9 15h.01M15 15h.01" />,
     items: [
-      "Cheam Station is the nearest — about a 10–15 minute walk to the venue.",
-      "Sutton and Ewell East stations are also within easy reach by bus or taxi.",
+      "Purley Station is the nearest — about a 15 minute walk to the venue.",
+      "Purley Oaks and East Croydon stations are also within easy reach by bus or taxi.",
       "Southern & Thameslink services connect from central London.",
     ],
   },
@@ -16,15 +16,15 @@ const options = [
     icon: <path d="M10.5 2.5 12 2l1.5.5.5 6 6.5 3.8.5 1.7-7 .5-1 5 1.5 1v1.5L12 22l-3-2.5V18l1.5-1-1-5-7-.5.5-1.7L9.5 6l1-3.5Z" />,
     items: [
       "London Heathrow (LHR) — approx. 45–60 min by road.",
-      "London Gatwick (LGW) — approx. 30–40 min by road.",
-      "Both airports connect to Sutton/Cheam by rail and coach.",
+      "London Gatwick (LGW) — approx. 25–35 min by road.",
+      "Both airports connect to Purley by rail and coach.",
     ],
   },
   {
     title: "By Bus & Road",
     icon: <path d="M4 16V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10M4 16h16M4 16v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2m10 0v2a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-2M7 8h10M7 12h4" />,
     items: [
-      "Local bus routes serve Cheam & Sutton from surrounding areas.",
+      "Local bus routes serve Purley & Croydon from surrounding areas.",
       "Ample residential parking nearby — please park considerately.",
       "Taxis and ride-share drop-offs are available at the venue gate.",
     ],
@@ -32,10 +32,10 @@ const options = [
 ];
 
 const hotels = [
-  { name: "Premier Inn London Sutton", note: "~2 miles · budget-friendly" },
-  { name: "Holiday Inn London – Sutton", note: "~2 miles · full service" },
-  { name: "Travelodge Sutton", note: "~2 miles · budget" },
-  { name: "Local guest houses & B&Bs", note: "Cheam & Ewell village" },
+  { name: "Premier Inn London Croydon (Purley A23)", note: "Nearby · budget-friendly" },
+  { name: "Ibis Styles London Croydon", note: "Nearby · modern & affordable" },
+  { name: "easyHotel London Croydon", note: "Nearby · budget" },
+  { name: "Local guest houses & B&Bs", note: "Purley & Croydon area" },
 ];
 
 export default function Travel() {
@@ -88,8 +88,8 @@ export default function Travel() {
             <ol className="mt-5 space-y-4">
               {[
                 "Take the Victoria, Northern, District or Circle Line to Victoria, Blackfriars, St Pancras International or London Bridge.",
-                "Change to a Southern or Thameslink train to Cheam Station.",
-                "Walk approximately 10–15 minutes to Nonsuch High School for Girls, Ewell Road, Cheam, Sutton, SM3 8AB.",
+                "Change to a Southern or Thameslink train to Purley Station.",
+                "Walk approximately 15 minutes to John Fisher School, Peaks Hill, Purley, Surrey, CR8 3YP.",
               ].map((step, i) => (
                 <li key={i} className="flex gap-4">
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-saffron-500 text-sm font-bold text-white">
@@ -103,7 +103,7 @@ export default function Travel() {
             </ol>
             <p className="mt-5 text-sm italic text-cream/60">
               This route is recommended for guests travelling from central London
-              because it combines direct National Rail services to Cheam with a
+              because it combines direct National Rail services to Purley with a
               straightforward walk to the venue.
             </p>
           </div>

@@ -17,7 +17,7 @@ export default function Hero() {
 
         <div className="mx-auto max-w-3xl text-center animate-fade-up">
           <span className="eyebrow">
-            {EVENT.dateLabel} · Sutton, London
+            {EVENT.dateLabel} · Purley, London
           </span>
 
           <p className="mt-6 font-serif font-extrabold leading-none text-saffron-500 drop-shadow-sm">
