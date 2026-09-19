@@ -57,10 +57,9 @@ export type Guest = {
 // here as further confirmations come in — no other changes needed.
 export const GUESTS: Guest[] = [
   {
-    name: "Luke Taylor MP",
-    role: "Member of Parliament for Sutton and Cheam",
+    name: "DEAN, Bobby (MP)",
+    role: "Member of Parliament for Carshalton and Wallington",
     badge: "Chief Guest",
-    photo: "/guest-luke-taylor.jpg",
   },
   {
     name: "Razia Sattar",
@@ -134,7 +133,7 @@ export const SCHEDULE: ScheduleItem[] = [
   {
     start: "07:05",
     end: "07:15",
-    title: "Sree Sree Thakur's Janma Lagna Ghoshana",
+    title: "Gate Opening & Darshan – Pranam to the Vigraha",
   },
   { start: "07:15", end: "09:00", title: "Morning Congregation" },
   {
