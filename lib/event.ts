@@ -161,8 +161,8 @@ export const SCHEDULE: ScheduleItem[] = [
   { start: "16:00", end: "16:30", title: "Afternoon Tea Break" },
   { start: "16:30", end: "18:00", title: "Evening Congregation" },
   {
-    start: "18:00",
-    end: "19:00",
+    start: "18:30",
+    end: "19:30",
     title: "Musical Ensemble by BEATIFICUS",
     note: "Satsang Europe's musical band",
   },
