@@ -60,6 +60,7 @@ export const GUESTS: Guest[] = [
     name: "DEAN, Bobby (MP)",
     role: "Member of Parliament for Carshalton and Wallington",
     badge: "Chief Guest",
+    photo: "/guest-bobby-dean.jpg",
   },
   {
     name: "Razia Sattar",
