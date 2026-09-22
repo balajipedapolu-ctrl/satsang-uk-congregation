@@ -68,6 +68,17 @@ export const GUESTS: Guest[] = [
     badge: "Symposium Speaker",
     photo: "/guest-razia-sattar.jpg",
   },
+  {
+    name: "Cllr Lakhbir Singh",
+    role: "Liberal Democrat Councillor, Ealing Common Ward, Ealing Council",
+    badge: "Distinguished Guest",
+  },
+  {
+    name: "Cllr Gurcharan Manku",
+    role: "Conservative Councillor, Langley St Mary's Ward, Slough Borough Council",
+    badge: "Distinguished Guest",
+    photo: "/guest-gurcharan-manku.jpg",
+  },
 ];
 
 export type CommunityPartner = {
