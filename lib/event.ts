@@ -68,23 +68,6 @@ export const GUESTS: Guest[] = [
     badge: "Symposium Speaker",
     photo: "/guest-razia-sattar.jpg",
   },
-  {
-    name: "Gurucharan Singh",
-    role: "Liberal Democrat Councillor, Ealing Council",
-    badge: "Distinguished Guest",
-  },
-  {
-    name: "Subhash Mohindra",
-    role: "Conservative Councillor, Upton Ward, Slough Borough Council",
-    badge: "Distinguished Guest",
-    photo: "/guest-subhash-mohindra.jpg",
-  },
-  {
-    name: "Gurcharan Manku",
-    role: "Conservative Councillor, Langley St Mary's Ward, Slough Borough Council",
-    badge: "Distinguished Guest",
-    photo: "/guest-gurcharan-manku.jpg",
-  },
 ];
 
 export type CommunityPartner = {
