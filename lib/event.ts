@@ -89,6 +89,7 @@ export const GUESTS: Guest[] = [
     name: "Sharad Kumar Jha",
     role: "Conservative Party — Chairman, Chalfont St Peter; Deputy Chairman, Chesham and Amersham; Area Council Head and Approval Committee; Former Parish Councillor",
     badge: "Distinguished Guest",
+    photo: "/guest-sharad-kumar-jha.jpg",
   },
   {
     name: "Clementine Sloggett",
