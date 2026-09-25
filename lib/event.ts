@@ -96,6 +96,7 @@ export const GUESTS: Guest[] = [
     name: "Clementine Sloggett",
     role: "Health & Wellbeing Manager, Sutton Primary Care Networks",
     badge: "Distinguished Guest",
+    photo: "/guest-clementine-sloggett.jpg",
   },
   {
     name: "Gurcharan Manku",
