@@ -69,10 +69,10 @@ export const GUESTS: Guest[] = [
     photo: "/guest-razia-sattar.jpg",
   },
   {
-    name: "Prakash Singh",
-    role: "Deputy Chairman (Membership & Finance), Slough Conservative Party",
+    name: "Clementine Sloggett",
+    role: "Health & Wellbeing Manager, Sutton Primary Care Networks",
     badge: "Distinguished Guest",
-    photo: "/guest-prakash-singh.jpg",
+    photo: "/guest-clementine-sloggett.jpg",
   },
   {
     name: "Subhash Mohindra",
@@ -93,10 +93,10 @@ export const GUESTS: Guest[] = [
     photo: "/guest-sharad-kumar-jha.jpg",
   },
   {
-    name: "Clementine Sloggett",
-    role: "Health & Wellbeing Manager, Sutton Primary Care Networks",
+    name: "Prakash Singh",
+    role: "Deputy Chairman (Membership & Finance), Slough Conservative Party",
     badge: "Distinguished Guest",
-    photo: "/guest-clementine-sloggett.jpg",
+    photo: "/guest-prakash-singh.jpg",
   },
   {
     name: "Gurcharan Manku",
