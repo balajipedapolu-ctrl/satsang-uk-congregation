@@ -196,7 +196,7 @@ export const SCHEDULE: ScheduleItem[] = [
   { start: "14:00", end: "15:00", title: "Matrisammelani" },
   { start: "15:00", end: "16:00", title: "Kids' & Cultural Programme" },
   { start: "16:00", end: "16:30", title: "Afternoon Tea Break" },
-  { start: "16:30", end: "18:00", title: "Evening Congregation" },
+  { start: "16:30", end: "18:30", title: "Evening Congregation" },
   {
     start: "18:30",
     end: "19:30",
