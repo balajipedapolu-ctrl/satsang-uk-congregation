@@ -18,11 +18,11 @@ export default function SpecialGuests() {
           subtitle="We are honoured to welcome the following guests to join us this year. More names will be added here as further confirmations come in."
         />
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-6 sm:grid-cols-2">
+        <div className="mx-auto mt-14 flex max-w-4xl flex-wrap justify-center gap-6">
           {GUESTS.map((guest) => (
             <div
               key={guest.name}
-              className="card flex flex-col items-center text-center"
+              className="card flex w-full flex-col items-center text-center sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
             >
               <div className="h-28 w-28 overflow-hidden rounded-full border-4 border-saffron-100 bg-saffron-50 shadow-soft">
                 {guest.photo ? (

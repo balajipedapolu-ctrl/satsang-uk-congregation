@@ -68,6 +68,39 @@ export const GUESTS: Guest[] = [
     badge: "Symposium Speaker",
     photo: "/guest-razia-sattar.jpg",
   },
+  {
+    name: "Prakash Singh",
+    role: "Deputy Chairman, Slough Conservative Party",
+    badge: "Distinguished Guest",
+  },
+  {
+    name: "Subhash Mohindra",
+    role: "Conservative Councillor, Upton Ward, Slough Borough Council",
+    badge: "Distinguished Guest",
+    photo: "/guest-subhash-mohindra.jpg",
+  },
+  {
+    name: "Gurcharan Singh",
+    role: "Councillor, Wexham Court Parish Council",
+    badge: "Distinguished Guest",
+    photo: "/guest-gurcharan-singh.jpg",
+  },
+  {
+    name: "Sharad Kumar Jha",
+    role: "Conservative Party — Chairman, Chalfont St Peter; Deputy Chairman, Chesham and Amersham; Area Council Head and Approval Committee; Former Parish Councillor",
+    badge: "Distinguished Guest",
+  },
+  {
+    name: "Clementine Sloggett",
+    role: "Health & Wellbeing Manager, Sutton Primary Care Networks",
+    badge: "Distinguished Guest",
+  },
+  {
+    name: "Gurcharan Manku",
+    role: "Conservative Councillor, Langley St Mary's Ward, Slough Borough Council",
+    badge: "Distinguished Guest",
+    photo: "/guest-gurcharan-manku.jpg",
+  },
 ];
 
 export type CommunityPartner = {
