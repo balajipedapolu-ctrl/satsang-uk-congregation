@@ -70,8 +70,9 @@ export const GUESTS: Guest[] = [
   },
   {
     name: "Prakash Singh",
-    role: "Deputy Chairman, Slough Conservative Party",
+    role: "Deputy Chairman (Membership & Finance), Slough Conservative Party",
     badge: "Distinguished Guest",
+    photo: "/guest-prakash-singh.jpg",
   },
   {
     name: "Subhash Mohindra",
