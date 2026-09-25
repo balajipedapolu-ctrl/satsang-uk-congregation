@@ -8,7 +8,7 @@ export default function Schedule() {
         <SectionHeading
           eyebrow="Programme"
           title="Schedule of the day"
-          subtitle="A full day of prayer, reflection, learning, culture and shared prasad — from the early morning Ghoshana to the evening congregation and dinner."
+          subtitle="A full day of prayer, reflection, learning, culture and shared prasad, from the early morning congregation to the evening congregation and dinner."
         />
 
         {/* NHS blood donor drive — highlighted at the top of the day's schedule */}
