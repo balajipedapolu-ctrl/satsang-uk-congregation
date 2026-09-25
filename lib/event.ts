@@ -189,6 +189,7 @@ export const SCHEDULE: ScheduleItem[] = [
     end: "12:15",
     title:
       "Symposium — Being and Becoming: Sree Sree Thakur Anukulchandra's Philosophy of Human Excellence and Sustainable Living",
+    note: "A Saga of Musical Retreats and Critical Discussions on the Diverse Philosophies of Sree Sree Thakur Anukulchandra",
   },
   { start: "12:30", end: "14:00", title: "Lunch Prasad Break" },
   { start: "14:00", end: "15:00", title: "Matrisammelani" },
