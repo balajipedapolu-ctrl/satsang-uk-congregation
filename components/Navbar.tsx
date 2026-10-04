@@ -56,7 +56,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden items-center gap-7 lg:flex">
+        <div className="hidden items-center gap-5 xl:flex xl:gap-7">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -72,7 +72,7 @@ export default function Navbar() {
           >
             Donate
           </Link>
-          <Link href="/register" className="btn-primary">
+          <Link href="/register" className="btn-primary whitespace-nowrap">
             Register Now
           </Link>
         </div>
@@ -83,7 +83,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-saffron-200 bg-white/70 text-maroon-800 lg:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-saffron-200 bg-white/70 text-maroon-800 xl:hidden"
         >
           <div className="space-y-1.5">
             <span
@@ -113,7 +113,7 @@ export default function Navbar() {
           and clips the page content. */}
       <div
         aria-hidden={!open}
-        className={`fixed inset-0 z-40 flex flex-col overflow-y-auto bg-cream px-6 pb-10 pt-24 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 flex flex-col overflow-y-auto bg-cream px-6 pb-10 pt-24 transition-opacity duration-300 xl:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >

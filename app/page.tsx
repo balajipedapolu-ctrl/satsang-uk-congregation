@@ -9,6 +9,7 @@ import EventDetails from "@/components/EventDetails";
 import Schedule from "@/components/Schedule";
 import Travel from "@/components/Travel";
 import Gallery from "@/components/Gallery";
+import FeedbackCTA from "@/components/FeedbackCTA";
 import DonationCTA from "@/components/DonationCTA";
 import Contact from "@/components/Contact";
 
@@ -26,6 +27,7 @@ export default function HomePage() {
       <Schedule />
       <Travel />
       <Gallery />
+      <FeedbackCTA />
       <DonationCTA />
       <Contact />
     </>

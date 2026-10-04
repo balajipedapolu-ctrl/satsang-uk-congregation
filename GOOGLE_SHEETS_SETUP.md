@@ -58,6 +58,35 @@ function doPost(e) {
         d.message || '',
         d.stage || 'confirmed'
       ]);
+    } else if (d.type === 'feedback') {
+      // Post-event feedback goes to its own "Feedback" tab
+      var fb = ss.getSheetByName('Feedback') || ss.insertSheet('Feedback');
+      if (fb.getLastRow() === 0) {
+        fb.appendRow([
+          'Timestamp', 'Overall (1-5)', 'Attended As', 'Welcome', 'Programme',
+          'Symposium', 'Prasad', 'Venue', 'Travel', 'Seva', 'Enjoyed Most',
+          'Could Improve', 'Suggestions', 'Join Next Year', 'Name', 'Email'
+        ]);
+      }
+      var a = d.areas || {};
+      fb.appendRow([
+        new Date(),
+        d.overall || '',
+        d.attendedAs || '',
+        a.welcome || '',
+        a.programme || '',
+        a.symposium || '',
+        a.prasad || '',
+        a.venue || '',
+        a.travel || '',
+        a.seva || '',
+        d.enjoyed || '',
+        d.improve || '',
+        d.suggestions || '',
+        d.nextYear || '',
+        d.name || '',
+        d.email || ''
+      ]);
     } else {
       // Registrations go to the first sheet
       var sheet = ss.getSheets()[0];
@@ -98,6 +127,10 @@ function doPost(e) {
 > version above, then **Deploy → Manage deployments → edit ✏️ → Version: New
 > version → Deploy**. The webhook URL stays the same, and donations will start
 > landing on a new **"Donations"** tab automatically.
+
+> **Feedback form:** the post-event feedback form saves to a new **"Feedback"**
+> tab. Paste the updated script above, then **Deploy → Manage deployments → edit ✏️
+> → Version: New version → Deploy**. The URL stays the same.
 
 > **About the "Stage" column:** a donor's details are saved as soon as they
 > finish Step 1 (**Stage = "started"**), before they even reach the payment

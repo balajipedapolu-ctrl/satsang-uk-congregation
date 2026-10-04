@@ -218,6 +218,17 @@ export const SEVA_OPTIONS = [
   "NHS Team Support",
 ] as const;
 
+// Areas the feedback form rates (1–5). Keys are sent to /api/feedback.
+export const FEEDBACK_AREAS = {
+  welcome: "Welcome & registration",
+  programme: "Programme & schedule",
+  symposium: "Symposium",
+  prasad: "Prasad & food",
+  venue: "Venue & facilities",
+  travel: "Travel & parking",
+  seva: "Seva & volunteers",
+} as const;
+
 // Primary navigation. Section links point to the landing page anchors so they
 // work from any route (e.g. from the /register page too).
 export const NAV_LINKS = [
@@ -226,5 +237,6 @@ export const NAV_LINKS = [
   { label: "Schedule", href: "/#schedule" },
   { label: "Travel", href: "/#travel" },
   { label: "Gallery", href: "/#gallery" },
+  { label: "Feedback", href: "/feedback" },
   { label: "Contact", href: "/#contact" },
 ] as const;
