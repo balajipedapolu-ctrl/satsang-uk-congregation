@@ -6,15 +6,6 @@ import SectionHeading from "@/components/SectionHeading";
 type Photo = { src: string; caption: string };
 
 const PHOTOS: Photo[] = [
-  // Photos from Satsang UK's Facebook page (facebook.com/SatsangUK)
-  { src: "/gallery/facebook-beatificus-band.jpg", caption: "BEATIFICUS Band" },
-  { src: "/gallery/facebook-congregation-singing.jpg", caption: "Congregation Singing" },
-  { src: "/gallery/facebook-band-on-stage.jpg", caption: "Musical Ensemble" },
-  { src: "/gallery/facebook-altar-darshan.jpg", caption: "Altar & Darshan" },
-  { src: "/gallery/facebook-kirtan-drums.jpg", caption: "Kirtan & Drums" },
-  { src: "/gallery/facebook-harmonium-kirtan.jpg", caption: "Harmonium Kirtan" },
-  { src: "/gallery/facebook-cultural-programme.jpg", caption: "Cultural Programme" },
-  { src: "/gallery/facebook-musical-ensemble.jpg", caption: "Live Music" },
   { src: "/gallery/national-congregation-full-hall.jpg", caption: "National Congregation" },
   { src: "/gallery/classical-dance-congregation.jpg", caption: "Classical Dance" },
   { src: "/gallery/kirtan-nehru-centre-stage.jpg", caption: "Kirtan on Stage" },

@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const STRIP = [
-  { src: "/gallery/facebook-congregation-singing.jpg", alt: "Congregation singing together" },
-  { src: "/gallery/facebook-beatificus-band.jpg", alt: "BEATIFICUS band performing" },
-  { src: "/gallery/facebook-altar-darshan.jpg", alt: "Altar with garlands and flowers" },
+  { src: "/gallery/national-congregation-full-hall.jpg", alt: "National congregation hall" },
+  { src: "/gallery/congregation-seated.jpg", alt: "Congregation seated together" },
+  { src: "/gallery/kirtan-nehru-centre-stage.jpg", alt: "Kirtan on stage" },
 ];
 
 export default function FeedbackPage() {
