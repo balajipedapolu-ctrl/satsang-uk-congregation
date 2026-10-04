@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   description: `Share your feedback on the ${EVENT.title} held on ${EVENT.dateLabel} at ${EVENT.venue.name}.`,
 };
 
-const STRIP = [
-  { src: "/gallery/national-congregation-full-hall.jpg", alt: "National congregation hall" },
-  { src: "/gallery/congregation-seated.jpg", alt: "Congregation seated together" },
-  { src: "/gallery/kirtan-nehru-centre-stage.jpg", alt: "Kirtan on stage" },
+const PHOTOS = [
+  { src: "/gallery/utsav-2026-altar.jpg", alt: "Altar with garlands and the Thakur's photographs" },
+  { src: "/gallery/utsav-2026-lunch.jpg", alt: "Shared prasad lunch" },
+  { src: "/gallery/utsav-2026-congregation.jpg", alt: "Congregation seated in the hall" },
 ];
 
 export default function FeedbackPage() {
@@ -41,8 +41,9 @@ export default function FeedbackPage() {
           </p>
         </div>
 
+
         <div className="mx-auto mb-12 grid max-w-3xl grid-cols-3 gap-3 sm:gap-4">
-          {STRIP.map((photo) => (
+          {PHOTOS.map((photo) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               key={photo.src}
