@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { FEEDBACK_AREAS } from "@/lib/event";
+import { FEEDBACK_AREAS, SCHEDULE } from "@/lib/event";
 
 /**
  * Handles post-event feedback from attendees.
@@ -37,11 +37,21 @@ export async function POST(request: Request) {
       Object.keys(FEEDBACK_AREAS).map((key) => [key, rating(areas[key])]),
     );
 
+    const sessions =
+      body?.schedule && typeof body.schedule === "object" ? body.schedule : {};
+    const scheduleRatings = SCHEDULE.map((item, i) => {
+      const r = rating(sessions[i]);
+      return r ? `${item.start}–${item.end} ${item.title}: ${r}/5` : "";
+    })
+      .filter(Boolean)
+      .join("; ");
+
     const payload = {
       type: "feedback",
       overall,
       attendedAs: text(body?.attendedAs),
       areas: areaRatings,
+      scheduleRatings,
       enjoyed: text(body?.enjoyed),
       improve: text(body?.improve),
       suggestions: text(body?.suggestions),

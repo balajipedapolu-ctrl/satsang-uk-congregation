@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { EVENT, FEEDBACK_AREAS } from "@/lib/event";
+import { EVENT, FEEDBACK_AREAS, SCHEDULE } from "@/lib/event";
 
 type AreaKey = keyof typeof FEEDBACK_AREAS;
 
@@ -13,6 +13,8 @@ const initialState = {
   overall: 0,
   attendedAs: "",
   areas: {} as Partial<Record<AreaKey, number>>,
+  // Ratings per item of SCHEDULE, keyed by its index
+  schedule: {} as Partial<Record<number, number>>,
   enjoyed: "",
   improve: "",
   suggestions: "",
@@ -107,6 +109,10 @@ export default function FeedbackForm() {
     setForm((f) => ({ ...f, areas: { ...f.areas, [key]: n || undefined } }));
   }
 
+  function setSession(index: number, n: number) {
+    setForm((f) => ({ ...f, schedule: { ...f.schedule, [index]: n || undefined } }));
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!form.overall) {
@@ -198,6 +204,32 @@ export default function FeedbackForm() {
                 label={FEEDBACK_AREAS[key]}
                 value={form.areas[key] ?? 0}
                 onChange={(n) => setArea(key, n)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Per-session ratings from the Schedule of the day */}
+      <div>
+        <p className="field-label">Rate each part of the day</p>
+        <div className="divide-y divide-saffron-100 rounded-2xl border border-saffron-100 bg-cream/60">
+          {SCHEDULE.map((item, i) => (
+            <div
+              key={`${item.start}-${item.title}`}
+              className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span className="text-sm font-medium text-maroon-900">
+                <span className="font-mono text-xs text-saffron-700">
+                  {item.start} – {item.end}
+                </span>
+                <span className="block">{item.title}</span>
+              </span>
+              <RatingButtons
+                size="sm"
+                label={item.title}
+                value={form.schedule[i] ?? 0}
+                onChange={(n) => setSession(i, n)}
               />
             </div>
           ))}

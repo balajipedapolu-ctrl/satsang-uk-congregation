@@ -65,7 +65,8 @@ function doPost(e) {
         fb.appendRow([
           'Timestamp', 'Overall (1-5)', 'Attended As', 'Welcome', 'Programme',
           'Symposium', 'Prasad', 'Venue', 'Travel', 'Seva', 'Enjoyed Most',
-          'Could Improve', 'Suggestions', 'Join Next Year', 'Name', 'Email'
+          'Could Improve', 'Suggestions', 'Join Next Year', 'Name', 'Email',
+          'Programme Ratings'
         ]);
       }
       var a = d.areas || {};
@@ -85,7 +86,8 @@ function doPost(e) {
         d.suggestions || '',
         d.nextYear || '',
         d.name || '',
-        d.email || ''
+        d.email || '',
+        d.scheduleRatings || ''
       ]);
     } else {
       // Registrations go to the first sheet
