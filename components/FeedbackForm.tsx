@@ -189,7 +189,6 @@ export default function FeedbackForm() {
 
       {/* Per-area ratings */}
       <div>
-        <p className="field-label">Rate the parts you experienced</p>
         <div className="divide-y divide-saffron-100 rounded-2xl border border-saffron-100 bg-cream/60">
           {(Object.keys(FEEDBACK_AREAS) as AreaKey[]).map((key) => (
             <div
