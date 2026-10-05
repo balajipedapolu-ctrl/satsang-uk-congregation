@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { EVENT, FEEDBACK_AREAS, SCHEDULE } from "@/lib/event";
-
-type AreaKey = keyof typeof FEEDBACK_AREAS;
+import { EVENT, SCHEDULE } from "@/lib/event";
 
 const ATTENDED_AS = ["Devotee", "Visitor", "Volunteer", "Guest"];
 const NEXT_YEAR = ["Yes, definitely", "Maybe", "Not sure yet"];
@@ -12,7 +10,6 @@ const NEXT_YEAR = ["Yes, definitely", "Maybe", "Not sure yet"];
 const initialState = {
   overall: 0,
   attendedAs: "",
-  areas: {} as Partial<Record<AreaKey, number>>,
   // Ratings per item of SCHEDULE, keyed by its index
   schedule: {} as Partial<Record<number, number>>,
   enjoyed: "",
@@ -105,10 +102,6 @@ export default function FeedbackForm() {
   const [done, setDone] = useState(false);
   const [error, setError] = useState("");
 
-  function setArea(key: AreaKey, n: number) {
-    setForm((f) => ({ ...f, areas: { ...f.areas, [key]: n || undefined } }));
-  }
-
   function setSession(index: number, n: number) {
     setForm((f) => ({ ...f, schedule: { ...f.schedule, [index]: n || undefined } }));
   }
@@ -185,28 +178,6 @@ export default function FeedbackForm() {
           value={form.attendedAs}
           onChange={(attendedAs) => setForm({ ...form, attendedAs })}
         />
-      </div>
-
-      {/* Per-area ratings */}
-      <div>
-        <div className="divide-y divide-saffron-100 rounded-2xl border border-saffron-100 bg-cream/60">
-          {(Object.keys(FEEDBACK_AREAS) as AreaKey[]).map((key) => (
-            <div
-              key={key}
-              className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"
-            >
-              <span className="font-medium text-maroon-900">
-                {FEEDBACK_AREAS[key]}
-              </span>
-              <RatingButtons
-                size="sm"
-                label={FEEDBACK_AREAS[key]}
-                value={form.areas[key] ?? 0}
-                onChange={(n) => setArea(key, n)}
-              />
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Per-session ratings from the Schedule of the day */}
